@@ -611,15 +611,30 @@ body{
     font-weight: 600;
     padding-right: 20px;
     background-color: #D9D9D9;
+    visibility: hidden;
 }
 .pdf img{
     width: 25px;
 }
 .botaoAnexo{
-    /* width: 100%; */
+    width: 100%;
     display: flex;
-    align-items: flex-start;
-    /* padding-left: 3.5vw; */
+    padding-left: 3.5vw;
+}
+.botaoAnexo label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    padding: 5px;
+    font-size: 12px;
+    font-style: italic;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    padding-right: 20px;
+    background-color: #D9D9D9;
+    border-radius: 20px;
+    border: 1px solid #524D4D;
 }
 .enviarCurriculo{
     width: 100%;
