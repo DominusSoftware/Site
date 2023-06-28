@@ -17,16 +17,17 @@
         </div>
     </div>
     <header id="menu">
-        
         <nav class="menu">
-            <a href="#inicio">Inicio</a>
-            <a href="#servicos">Serviços</a>
-            <a href="#planos">Planos</a>
-            <a href="#contato">Contato</a>
-            <a href="#inicio" class="logo"><img src="Images/Logo Clara.png" alt=""></a>
-            <a href="#trabalheConosco">Trabalhe Conosco</a>
-            <a href="">FAQ</a>
-            <button class="suporte">Suporte</button>
+            <ul>
+                <li><a href="#inicio">Inicio</li>
+                <li><a href="#servicos">Serviços</li>
+                <li><a href="#planos">Planos</li>
+                <li><a href="#contato">Contato</li>
+                <li><a href="#inicio" class="logo"><img src="Images/Logo Clara.png" alt=""></li>
+                <li><a href="#trabalheConosco">Trabalhe Conosco</li>
+                <li><a href="FAQ.html">FAQ</li>
+                <button class="suporte">Suporte</button>
+            </ul>
         </nav>
     </header>
     <section id="inicio">
@@ -71,29 +72,47 @@
                 </div>
                 <div class="contServ">
                     <div class="linhaServ">
-                            <div class="lojaOnline" id="services">
+                            <div class="lojaOnline" id="services" onclick="expandDiv(this)">
+                                <img class="iconServ" src="/Images/Online Store.png" alt="">
+                            </div>
+                            <div class="ExpLojaOline">
                                 <img class="iconServ" src="/Images/Online Store.png" alt="">
                                 <p class="textoServ">PDV e grades para supermercados, distribuidoras e conveniencias</p>
                             </div>
-                            <div class="pesagens" id="services">
+                            <div class="pesagens" id="services" onclick="expandedPesagens(this)">
+                                <img class="iconServ" src="/Images/Trailer Unloading.png" alt="">
+                            </div>
+                            <div class="ExpPesagens">
                                 <img class="iconServ" src="/Images/Trailer Unloading.png" alt="">
                                 <p class="textoServ">Romaneio e pesagens</p>
                             </div>
-                            <div class="delivery" id="services">
+                            <div class="delivery" id="services" onclick="expandDiv(this)">
+                                <img class="iconServ" src="/Images/Scooter.png" alt="">
+                            </div>
+                            <div class="ExpDelivery">
                                 <img class="iconServ" src="/Images/Scooter.png" alt="">
                                 <p class="textoServ">Deliverys e cardapio online</p>
                             </div>
                         </div>
                         <div class="linhaServ">
-                            <div class="mecanica" id="services">
+                            <div class="mecanica" id="services" onclick="expandDiv(this)">
+                                <img class="iconServ" src="/Images/Car Service.png" alt="">
+                            </div>
+                            <div class="Expmecanica">
                                 <img class="iconServ" src="/Images/Car Service.png" alt="">
                                 <p class="textoServ">Ordem de serviço para mécanicas, oficinas e hidraulicas</p>
                             </div>
-                            <div class="ordemServ" id="services">
-                            <img class="iconServ" src="/Images/Worker Beard.png" alt="">
-                            <p class="textoServ">Ordem de serviço para prestadores de serviço, como T.I e assistências técnicas</p>
+                            <div class="ordemServ" id="services" onclick="expandDiv(this)">
+                                <img class="iconServ" src="/Images/Worker Beard.png" alt="">
                             </div>
-                            <div class="loja" id="services">
+                            <div class="ExpOrdem">
+                                <img class="iconServ" src="/Images/Worker Beard.png" alt="">
+                                <p class="textoServ">Ordem de serviço para prestadores de serviço, como T.I e assistências técnicas</p>
+                            </div>
+                            <div class="loja" id="services" onclick="expandDiv(this)">
+                                <img class="iconServ" src="/Images/Clothes on Sale.png" alt="">
+                            </div>
+                            <div class="ExpLoja">
                                 <img class="iconServ" src="/Images/Clothes on Sale.png" alt="">
                                 <p class="textoServ">Condicionais e vendas para lojas de roupas e confecções</p>
                             </div>

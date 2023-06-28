@@ -32,7 +32,6 @@ body{
     align-items: flex-end;
     justify-content: center;
     height: 3vh;
-    /* position: fixed; */
     z-index: 999; 
 }
 .parceiros button{
@@ -43,6 +42,21 @@ body{
 }
 .parceirosButton{
     height: 10vh;
+}
+a{
+    text-decoration: none;
+    transition: 0.25s ease;
+}
+ul{
+    display: flex;
+}
+ul li{
+    margin-left: 0.75em;
+    margin-right: 0.75em;
+}
+ul:hover a:hover {
+    color: #B3E5FC;
+    box-shadow: 0 2px 0 0 currentcolor; 
 }
 .menu{
     display: flex;
@@ -230,9 +244,20 @@ body{
     width: 90px;
     height: 70px;
 }
-#services p{
-    display: none;
+.ExpLojaOline, .ExpPesagens, .ExpDelivery, .Expmecanica, .ExpOrdem, .ExpLoja{
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
+    width: 100%;
+    order: -1;
 }
+.ExpLojaOline.show, .ExpPesagens.show, .ExpDelivery.show, .Expmecanica.show, .ExpOrdem.show, .ExpLoja.show {
+    display: flex;
+    align-items: center;
+  }
 .vetorAm{
     width: 100%;
     display: flex;
