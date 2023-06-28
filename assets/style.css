@@ -21,10 +21,9 @@ body{
     background-color: #00051E;
     width: 70%;
     height: 7vh;
+    z-index: 990;
     top: 0;
     position: sticky;
-    z-index: 990; 
-    margin-top: -24px;
 }
 .parceiros{
     background-color: #23C166;
@@ -38,8 +37,12 @@ body{
     background-color: #23C166;
     border: none;
     border-radius: 20px;
-    padding: 5px;
+    padding: 5px 20px 5px 20px;
     z-index: 999;
+    position: absolute;
+    top: 4px;
+    right: 41vw;
+    color: #ffffff;
 }
 .menu ul{
     display: flex;
@@ -146,13 +149,14 @@ ul:hover a:hover {
 }
 #servicos{
     background-image: url("/Images/telaServicos.png");
-    height: 128vh;
+    height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
-    gap: 5px;
+    gap: 7px;
+    padding-top: 3vh;
 }
 .nossosServ{
     display: flex;
@@ -171,8 +175,10 @@ ul:hover a:hover {
 .serv{
     display: flex;
     width: 70vw;
-    margin-top: -35vh;
-    margin-right: 15vw;
+    position: absolute;
+    top: 114vh;
+    z-index: 900;
+
 }
 .serv section{
     display: flex;
@@ -247,16 +253,10 @@ ul:hover a:hover {
     visibility: visible;
 }
 .vetorAm{
-    width: 100%;
-    display: flex;
-    justify-content: end;
-    /* position: fixed; */
-    margin-top: -50vh;
-}
-.contVetor{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+    position: absolute;
+    top: 193vh;
+    right: 0;
+    z-index: 999;
 }
 #planos{
     background-color: #ffffff;
@@ -266,6 +266,7 @@ ul:hover a:hover {
     flex-direction: column;
     width: 100%; 
     align-items: center;
+    padding-top: 8vh;
 }
 .valorPlanos{
     display: flex;
@@ -273,7 +274,7 @@ ul:hover a:hover {
     align-items: center;
     gap: 30px;
     width: 100%;
-    margin-top: -8vh;
+    margin-top: -4vh;
 }
 .bronze{
     height: 350px;    
@@ -293,11 +294,9 @@ ul:hover a:hover {
 .tituloPl{
     width: 98%;
     display: flex;
-    margin-top: -75vh;
-    position: absolute;
     flex-direction: column;
     line-height: 100%;
-    padding-left: 100px;
+    padding-left: 12vw;
 }
 .plOpac{
     font-size: 70px;
@@ -308,21 +307,19 @@ ul:hover a:hover {
 .pltit{
     color: #141E52;
     font-size: 30px;
-    /* margin-left: -270px; */
-    /* margin-top: 45px; */
+    padding-left: 3vw;
 }
 .divisoria{
     background-color:#141E52;
     width: 350px;
     height: 15px;
     border-radius: 0 20px 20px 0;
-    margin-top: -5vh;
+    margin-top: 2vh;
 }
 .contDiv{
     display: flex;
     justify-content: flex-start;
     width: 100%;
-    /* margin-top: -5vh; */
 }
 .msgTeste{
     background-color: #19AD57;
@@ -334,6 +331,7 @@ ul:hover a:hover {
     width: 30%;
     /* padding: 3px; */
     border-radius: 20px 20px 0 20px;
+    z-index: 900;
 }
 #contato{
     background-image: linear-gradient( to right, #E3AF11 0, #E3AF11 40%, #030D44 40%, #030D44 60%);
@@ -343,18 +341,19 @@ ul:hover a:hover {
     align-items:flex-start;
     justify-content: center;
     flex-direction: column;
+    padding-top: 23vh;
 }
 .contVetorAul{
     width: 100%;
     display: flex;
     justify-content: flex-start;
-
 }
 .vetorAzul{
-    /* filter: invert(80%) saturate(80%); 
-    transform: scaleX(-100%); */
-    margin-top: -40vh;
-    height: 65vh;
+    position: absolute;
+    top: 290vh;
+    left: 0;
+    z-index: 990;
+    height: 60vh;
 }
 .conteudoCont{
     display: flex;
@@ -497,8 +496,7 @@ ul:hover a:hover {
     height: 21vh;
     padding-top: 8px;
     width: 100%;
-    margin-top: -0.5vh;
-    margin-top: 52vh;
+    margin-top: 50vh;
 }
 .tittleAzul{
     background-color: #141E52;
@@ -834,9 +832,10 @@ footer hr{
     text-decoration: none;
 }
 .contDecRep{
-    width: 100%;
     display: flex;
-    margin-right: 500px;
+    width: 100%;
+    justify-content: flex-start;
+    padding-left: 10vw;
 }
 .descRepresentante{
     color: #ffffff;
@@ -857,11 +856,15 @@ footer hr{
 }
 .ExpRep{
     background-color: rgba(0, 0, 0, 0.5);
-    width: 30vw;
+    border: 0.1px solid #19AD57;
+    width: 33vw;
     border-radius: 20px;
-    padding: 10px;
+    padding: 20px;
     margin-top: -10px;
     z-index: 1;
+    text-indent: 20px;
+    text-align: justify;
+    -webkit-text-stroke: 0.5px black;
 }
 .saibaMaisRep{
     display: flex;
@@ -881,13 +884,44 @@ footer hr{
     text-transform: uppercase;
     font-weight: 900;
     border-radius: 20px;
-    margin-top: -10px;
-    
+    margin-top: -13px;
+    margin-right: -5vw;
 }
 .saibaMaisRep a{
     text-decoration: none;
 }
 .saibaMaisRep img{
     width: 30px;
+}
+.vantagens{
+    background-color: #23C166;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 70vh;
+}
+.containerVant{
+    display: flex;
+    gap: 10vw;
+}
+.vantagensParc{
+    display: flex;
+    width: 35vw;
+    gap: 7px;
+}
+.vantagensParc hr{
+    border: none;
+    background-color: #ffffff;
+    width: 2px;
+    height: 10vh;
+}
+.vantagensParc h1{
+    font-weight: 600;
+    color: #ffffff;
+}
+.vantagensParc img{
+    width: 15%;
 }
 
