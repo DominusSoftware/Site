@@ -265,6 +265,11 @@ body{
 .bronze{
     height: 350px;    
 }
+.bronze:hover, .prata:hover,.ouro:hover{
+    transform: scale(1.2);
+    border-radius: 20px;
+    transition: 2s;
+}
 .prata{
     height: 450px;
 }
@@ -480,6 +485,7 @@ body{
     padding-top: 8px;
     width: 100%;
     margin-top: -0.5vh;
+    margin-top: 52vh;
 }
 .tittleAzul{
     background-color: #141E52;
@@ -600,17 +606,6 @@ body{
     margin-left: -35px;
 }
 .pdf{
-    border-radius: 20px;
-    border: 1px solid #524D4D;
-    display: flex;
-    align-items: center;
-    padding: 5px;
-    font-size: 12px;
-    font-style: italic;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    padding-right: 20px;
-    background-color: #D9D9D9;
     visibility: hidden;
 }
 .pdf img{
@@ -625,8 +620,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: auto;
-    padding: 5px;
+    padding: 0.5vh 2vw 0.5vh 1vw;
     font-size: 12px;
     font-style: italic;
     font-family: 'Montserrat', sans-serif;
@@ -635,6 +629,7 @@ body{
     background-color: #D9D9D9;
     border-radius: 20px;
     border: 1px solid #524D4D;
+    color: #000000;
 }
 .enviarCurriculo{
     width: 100%;
@@ -664,17 +659,17 @@ body{
     cursor: not-allowed;
 }
 footer{
-    height: 50vh;
+    padding: 9vh 1em 3em 12vw;
     width: 100%;
     background-color: #010118;
     color: #ffffff;
     display: flex;
-    gap: 30px;
+    gap: 60px;
     align-items: center;
     justify-content: center;
 }
 footer h1{
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 600;
 }
 footer p{
@@ -690,7 +685,35 @@ footer div{
     gap: 35px;
     width: 20vw;
 }
-.atendimento, .contato, .endereco, .siga{
+.endRedes{
+    gap: 10vh;
+    margin-top: -25px;
+    width: 15vw;
+}
+.endRedes hr{
+    width: 75px;
+}
+.contato{
+    display: flex;
+    gap: 5px;
+}
+.contato hr{
+    width: 75px;
+}
+.imgContato img{
+    width: 20px;
+}
+.img-Contato{
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+}
+.InfContato{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.atendimento, .endereco, .siga, .Nossosapps{
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -712,8 +735,9 @@ footer hr{
 .contDmApp{
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10vh;
     width: 50vw;
+    margin-top: -30px;
 }
 .dom{
     display: flex;
@@ -721,6 +745,7 @@ footer hr{
     font-size: 10px;
     gap: 10px;
     align-items: center;
+    
 }
 .dom h1{
     font-size: 15px;
@@ -755,3 +780,101 @@ footer hr{
     height: 7vh;
     margin-top: 7px;
 }
+.Nossosapps hr{
+    width: 160px;
+}
+/* CSS DO SEJA REPRESENTANTE */
+.inic{
+    background-image: url(/Images/Fundo.png);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    width: 98.7vw;
+}
+.voltSelo{
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+}
+.voltSelo button{
+    background-color: #121837;
+    border-radius: 20px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    gap: 1px;
+    border: none;
+    margin-top: 20px;
+}
+.voltSelo button img{
+    width: 40px;
+}
+.voltSelo a{
+    text-decoration: none;
+}
+.contDecRep{
+    width: 100%;
+    display: flex;
+    margin-right: 500px;
+}
+.descRepresentante{
+    color: #ffffff;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+.titRep{
+    background-color: #19AD57;
+    padding: 7px;
+    width: 24vw;
+    border-radius: 20px;
+    font-size: 1vw;
+    z-index: 2;
+}
+.titRep h1{
+    text-transform: uppercase;
+}
+.ExpRep{
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 30vw;
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: -10px;
+    z-index: 1;
+}
+.saibaMaisRep{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    z-index: 5;
+}
+.saibaMaisRep button{
+    background-color: #ffffff;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 170px;
+    padding: 6px;
+    color: #31BA45;
+    text-transform: uppercase;
+    font-weight: 900;
+    border-radius: 20px;
+    margin-top: -10px;
+    
+}
+.saibaMaisRep a{
+    text-decoration: none;
+}
+.saibaMaisRep img{
+    width: 30px;
+}
+
