@@ -23,7 +23,8 @@ body{
     height: 7vh;
     top: 0;
     position: sticky;
-    z-index: 999; 
+    z-index: 990; 
+    margin-top: -24px;
 }
 .parceiros{
     background-color: #23C166;
@@ -32,23 +33,17 @@ body{
     align-items: flex-end;
     justify-content: center;
     height: 3vh;
-    z-index: 999; 
 }
-.parceiros button{
+.parceirosButton button{
     background-color: #23C166;
     border: none;
     border-radius: 20px;
     padding: 5px;
+    z-index: 999;
 }
-.parceirosButton{
-    height: 10vh;
-}
-a{
-    text-decoration: none;
-    transition: 0.25s ease;
-}
-ul{
+.menu ul{
     display: flex;
+    list-style: none;
 }
 ul li{
     margin-left: 0.75em;
@@ -61,12 +56,16 @@ ul:hover a:hover {
 .menu{
     display: flex;
     gap: 30px;
-    padding-top: 35px;
+    padding-top: 55px;
+}
+.menu .logo{
+    padding-top: 0;
 }
 .menu a {
     text-decoration: none;
     color: #ffffff;
     padding-top: 10px;
+    transition: 0.25s ease;
 }
 .menu button{
     border: none;
@@ -77,7 +76,7 @@ ul:hover a:hover {
     height: 30px;
     padding: 15px;
     text-align: center;
-    margin-top: 7px;
+    margin-top: -5px;
     padding-top: 8px;
 }
 .logo{
@@ -169,16 +168,11 @@ ul:hover a:hover {
     font-size: 50px;
     text-transform: uppercase;
 }
-.contServs{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 .serv{
     display: flex;
     width: 70vw;
-    margin-top: -52vh;
+    margin-top: -35vh;
+    margin-right: 15vw;
 }
 .serv section{
     display: flex;
@@ -214,50 +208,44 @@ ul:hover a:hover {
     gap: 20px;
     width: 100%;
 }
-.linhaServ{
+.box {
     display: flex;
-    gap: 20px;
-}
-
-.restaurant{
-    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     width: 100%;
-    background-color: #ffffff;
-    color: #141E52;
+    flex: 1 1 33%;
+    gap: 12px;
+    color: #030D44;
     font-size: 12px;
-    padding: 10px;
-    border-radius: 10px;
     text-align: center;
-    align-items: center;
-    margin-bottom: 20px;
+    font-weight: 600;
 }
-#services{
+.box .box-item {
     background-color: #ffffff;
-    width: 33%;
-    height: 120px;
+    width: 140px;
+    height: 130px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+    padding-left: 60px;
 }
-#services img{
+.box-item img{
     width: 90px;
     height: 70px;
 }
-.ExpLojaOline, .ExpPesagens, .ExpDelivery, .Expmecanica, .ExpOrdem, .ExpLoja{
-    background-color: #ffffff;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    border-radius: 10px;
-    width: 100%;
-    order: -1;
+.box-item p{
+    visibility: hidden;
 }
-.ExpLojaOline.show, .ExpPesagens.show, .ExpDelivery.show, .Expmecanica.show, .ExpOrdem.show, .ExpLoja.show {
-    display: flex;
-    align-items: center;
-  }
+.box .selected {
+    order: -1;
+    background-color: #ffffff;
+    width: 93%;
+    gap: 20px;
+}
+.box .selected p{
+    visibility: visible;
+}
 .vetorAm{
     width: 100%;
     display: flex;

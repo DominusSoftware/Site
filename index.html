@@ -11,21 +11,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,600;0,800;1,100&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="parceiros">
-        <div class="parceirosButton"></div>
-            <button>seja um representante comercial!</button>
-        </div>
+    <div class="parceiros"></div>
+    <div class="parceirosButton">
+        <a href="sejaRepresentante.html"><button>seja um representante comercial!</button></a>
     </div>
     <header id="menu">
         <nav class="menu">
             <ul>
-                <li><a href="#inicio">Inicio</li>
-                <li><a href="#servicos">Serviços</li>
-                <li><a href="#planos">Planos</li>
-                <li><a href="#contato">Contato</li>
-                <li><a href="#inicio" class="logo"><img src="Images/Logo Clara.png" alt=""></li>
-                <li><a href="#trabalheConosco">Trabalhe Conosco</li>
-                <li><a href="FAQ.html">FAQ</li>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#planos">Planos</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li><a href="#inicio" class="logo"><img src="Images/Logo Clara.png" alt=""></a></li>
+                <li><a href="#trabalheConosco">Trabalhe Conosco</a></li>
+                <li><a href="FAQ.html">FAQ</a></li>
                 <button class="suporte">Suporte</button>
             </ul>
         </nav>
@@ -42,84 +41,60 @@
         <h1 class="saberMais">Deslize para saber mais</h1>
         <div class="seta"><img src="Images/seta-para-baixo.png" alt=""></div>
     </section>
-    
     <section id="servicos">
         <section class="contServs">
-        <article class="serv">
-            <section class="PrePago">
-                <img class="icone" src="Images/fa6-solid_money-bill-trend-up.png" alt="">
-                <p>Função pré-pago, você só efetua o pagamento se for utilizar no mês seguinte</p>
-            </section>
-            <section class="Certif">
-                <img class="icone" src="Images/certificado.png" alt="">
-                <p>Emissão de certificado digital de maneira remota e eficaz.</p>
-            </section>
-            <section class="Suport">
-                <img class="icone" src="Images/24hrs.png" alt="">
-                <p>Equipe de suporte técnico disponivel para atendimento imediato.</p>
-            </section>
-        </article>
+            <article class="serv">
+                <section class="PrePago">
+                    <img class="icone" src="Images/fa6-solid_money-bill-trend-up.png" alt="">
+                    <p>Função pré-pago, você só efetua o pagamento se for utilizar no mês seguinte</p>
+                </section>
+                <section class="Certif">
+                    <img class="icone" src="Images/certificado.png" alt="">
+                    <p>Emissão de certificado digital de maneira remota e eficaz.</p>
+                </section>
+                <section class="Suport">
+                    <img class="icone" src="Images/24hrs.png" alt="">
+                    <p>Equipe de suporte técnico disponivel para atendimento imediato.</p>
+                </section>
+            </article>
         </section>
         <div class="nossosServ">
             <h1 class="conhecaServ">Conheça os nossos</h1>
             <h1 class="conServ">Serviços</h1>
         </div>
         <section class="descricaoServicos">
-            <div>
-                <div class="restaurant">
-                    <img class="iconServ" src="/Images/Restaurant Table.png" alt="">
-                    <p>Com o modulo de <b>Comanda Eletronica</b>, é possivel atender e agilizar os pedidos das comandas, permitindo  a    integraçãocom o aplicativos, onde o propio garçon encaminha o pedido diretamente para o local onde será produzido.</p>
-                </div>
                 <div class="contServ">
-                    <div class="linhaServ">
-                            <div class="lojaOnline" id="services" onclick="expandDiv(this)">
-                                <img class="iconServ" src="/Images/Online Store.png" alt="">
-                            </div>
-                            <div class="ExpLojaOline">
-                                <img class="iconServ" src="/Images/Online Store.png" alt="">
-                                <p class="textoServ">PDV e grades para supermercados, distribuidoras e conveniencias</p>
-                            </div>
-                            <div class="pesagens" id="services" onclick="expandedPesagens(this)">
-                                <img class="iconServ" src="/Images/Trailer Unloading.png" alt="">
-                            </div>
-                            <div class="ExpPesagens">
-                                <img class="iconServ" src="/Images/Trailer Unloading.png" alt="">
-                                <p class="textoServ">Romaneio e pesagens</p>
-                            </div>
-                            <div class="delivery" id="services" onclick="expandDiv(this)">
-                                <img class="iconServ" src="/Images/Scooter.png" alt="">
-                            </div>
-                            <div class="ExpDelivery">
-                                <img class="iconServ" src="/Images/Scooter.png" alt="">
-                                <p class="textoServ">Deliverys e cardapio online</p>
-                            </div>
+                    <div class="box">
+                        <div class="box-item" id="lojaOnline">
+                            <img class="iconServ" src="/Images/Online Store.png" alt="">
+                            <p class="textoServ">PDV e grades para supermercados, distribuidoras e conveniencias</p>
                         </div>
-                        <div class="linhaServ">
-                            <div class="mecanica" id="services" onclick="expandDiv(this)">
-                                <img class="iconServ" src="/Images/Car Service.png" alt="">
-                            </div>
-                            <div class="Expmecanica">
-                                <img class="iconServ" src="/Images/Car Service.png" alt="">
-                                <p class="textoServ">Ordem de serviço para mécanicas, oficinas e hidraulicas</p>
-                            </div>
-                            <div class="ordemServ" id="services" onclick="expandDiv(this)">
-                                <img class="iconServ" src="/Images/Worker Beard.png" alt="">
-                            </div>
-                            <div class="ExpOrdem">
-                                <img class="iconServ" src="/Images/Worker Beard.png" alt="">
-                                <p class="textoServ">Ordem de serviço para prestadores de serviço, como T.I e assistências técnicas</p>
-                            </div>
-                            <div class="loja" id="services" onclick="expandDiv(this)">
-                                <img class="iconServ" src="/Images/Clothes on Sale.png" alt="">
-                            </div>
-                            <div class="ExpLoja">
-                                <img class="iconServ" src="/Images/Clothes on Sale.png" alt="">
-                                <p class="textoServ">Condicionais e vendas para lojas de roupas e confecções</p>
-                            </div>
+                        <div class="box-item" id="pesagens">
+                            <img class="iconServ" src="/Images/Trailer Unloading.png" alt="">
+                            <p class="textoServ">Romaneio e pesagens</p>
+                        </div>
+                        <div class="box-item" id="delivery">
+                            <img class="iconServ" src="/Images/Scooter.png" alt="">
+                            <p class="textoServ">Deliverys e cardapio online</p>
+                        </div>
+                        <div class="box-item" id="mecanica">
+                            <img class="iconServ" src="/Images/Car Service.png" alt="">
+                            <p class="textoServ">Ordem de serviço para mécanicas, oficinas e hidraulicas</p>
+                        </div>
+                        <div class="box-item" id="ordemServ">
+                            <img class="iconServ" src="/Images/Worker Beard.png" alt="">
+                            <p class="textoServ">Ordem de serviço para prestadores de serviço, como T.I e assistências técnicas</p>
+                        </div>
+                        <div class="box-item" id="loja">
+                            <img class="iconServ" src="/Images/Clothes on Sale.png" alt="">
+                            <p class="textoServ">Condicionais e vendas para lojas de roupas e confecções</p>
+                        </div>
+                        <div class="box-item selected" class="restaurant">
+                            <img class="iconServ" src="/Images/Restaurant Table.png" alt="">
+                            <p>Com o modulo de Comanda Eletronica, é possivel atender e agilizar os pedidos das comandas, permitindo  a integraçãocom o aplicativos, onde o proprio garçom encaminha o pedido diretamente para o local onde será produzido.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-
         </section>
     </section>
     <section id="planos">

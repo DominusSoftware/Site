@@ -1,16 +1,24 @@
 // Hover para mostrar texto do serviços
-function expandDiv(clickedDiv) {
-    var originalDiv = clickedDiv;
-    var expandedDiv = document.querySelector('.ExpLojaOline');
-    var expandedPesagens = document.querySelector('.ExpPesagens');
-    var expandedDiv = document.querySelector('.ExpDelivery');
-    var expandedDiv = document.querySelector('.Expmecanica');
-    var expandedDiv = document.querySelector('.ExpOrdem');
-    var expandedDiv = document.querySelector('.ExpLoja');
-    // Exibir a div expandida
-    expandedDiv.classList.toggle('show');
-    expandedPesagens.classList.toggle('show');
-  }
+const pages = document.querySelectorAll(".box-item");
+pages.forEach(page => {
+    page.addEventListener("click", function () {
+
+        if (page.classList.contains("selected")) {
+            return;
+        }
+
+        selectedPage(page);
+    });
+});
+
+function selectedPage(page) {
+    const pageSelected = document.querySelector(".box-item.selected");
+    pageSelected.classList.remove("selected")
+
+    page.classList.add("selected")
+
+    return;
+};
 function mascara(o,f){
     v_obj=o
     v_fun=f
