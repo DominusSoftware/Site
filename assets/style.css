@@ -244,8 +244,11 @@ ul:hover a:hover {
 #loja{
     padding-left: 5.5vw;
 }
+#ordemServ{
+    padding-left: 5.5vw;
+}
 .box-item img{
-    height: 80px;
+    height: 85px;
 }
 .box-item p{
     visibility: hidden;
@@ -975,4 +978,125 @@ footer hr{
 .butVantagens a{
     text-decoration: none;
 }
-
+/* CSS FAQ */
+#FAQ{
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
+    background-color: #060F3E;
+    height: 100vh;
+    width: 100%;
+}
+.voltarFaq{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+.voltarFaq a{
+    text-decoration: none;
+}
+.voltarFaq button{
+    background-color: #121837;
+    border-radius: 20px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    gap: 1px;
+    border: none;
+    margin-top: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+.ContTituloFaq{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.TiraAmarela{
+    height: 10vh;
+    width: 10vw;
+    background-color: #EFC11C;
+}
+.TituloFaq{
+    font-size: 10vh;
+    color: #EFC11C;
+}
+.perg{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.perg h1{
+    font-size: 5vh;
+    color: #EFC11C;
+    padding-right: 30px;
+}
+.perguntas{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contPerg{
+    display: flex;
+    gap: 10%;
+}
+.tipoPerg{
+    width: 20vw;
+    background-color: #040B33;
+    color: #ffffff;
+    font-weight: 200;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.tipoPerg h1{
+    color: #ffffff;
+    font-weight: 200;
+    font-size: 17px;
+    text-align: start;
+    padding-left: 5%;
+}
+.tipoPerg hr{
+    border: none;
+    background-color: #ffffff;
+    width: 19.9vw;
+    height: 1px;
+}
+.tipoPerg:hover h1:hover{
+    background-color: #EFC11C;
+    width: 100%;
+    text-align: start;
+    color: #000000;
+    transition: 0.5s;
+    height: 20px;
+    cursor: pointer;
+}
+.PerguntasTipo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    width: 80%;
+}
+.PergClicaveis{
+    background-color: #040B33;
+    color: #ffffff;
+    padding: 5px;
+}
+.resposta{
+    display: none;
+}
+.PergClicaveis:hover{
+    background-color: #EFC11C;
+    color: #000000;
+    transition: 0.5s;
+    cursor: pointer;
+}
