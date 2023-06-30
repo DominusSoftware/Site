@@ -683,9 +683,9 @@ ul:hover a:hover {
 .enviarCurriculo button img{
     width: 22px;
 }
-.enviarCurriculo button:disabled{
+/* .enviarCurriculo button:disabled{
     cursor: not-allowed;
-}
+} */
 footer{
     padding: 9vh 1vh 3vh 12vw;
     width: 100%;
@@ -1105,4 +1105,69 @@ footer hr{
     color: #000000;
     transition: 0.5s;
     cursor: pointer;
+}
+@media only screen and (max-width: 769px){
+    .parceiros{
+        display: none;
+    }
+    .parceirosButton button{
+        width: 100vw;
+        border-radius: 0 0 20px 20px ;
+        top: 0;
+        right: 0;
+    }
+    #menu{
+        display: none;
+    }
+    #inicio{
+        display: flex;
+        align-items: center;
+        margin-top: 10vh;
+        gap: 40px;
+        height: 100vh;
+    }
+    .slogan{
+        flex-direction: column;
+    }
+    #inicio img{
+        width: 60%;
+    }
+    .frase{
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+    }
+    .cont-inicio{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .frase p{
+        background-color: #03ACF2;
+        padding: 10px;
+        border-radius: 20px;
+        color: #ffffff;
+        font-size: 10px;
+        width: 90vw;
+        left: -20px;
+    }
+    .frase button{
+        background-color: #E3AF11;
+        color: #ffffff;
+        border-radius: 90px;
+        padding: 10px;
+        width: 160px;
+        border: none;
+        margin-left: 20vw;
+        font-size: 20px;
+        margin-top: -10px;
+    }
+    .saberMais{
+        font-size: 15px;
+        color: #ffffff;
+    }
+    .seta img{
+        width: 36px;
+    }
 }
