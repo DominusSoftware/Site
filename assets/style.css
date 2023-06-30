@@ -230,6 +230,7 @@ ul:hover a:hover {
 }
 .box .box-item {
     background-color: #ffffff;
+    cursor: pointer;
     width: 140px;
     height: 130px;
     display: flex;
@@ -239,13 +240,13 @@ ul:hover a:hover {
     padding-left: 60px;
 }
 #lojaOnline{
-    padding-left: 7.3vw;
+    padding-left: 90px;
 }
 #loja{
-    padding-left: 5.5vw;
+    padding-left: 70px;
 }
 #ordemServ{
-    padding-left: 5.5vw;
+    padding-left: 80px;
 }
 .box-item img{
     height: 85px;
@@ -257,8 +258,13 @@ ul:hover a:hover {
     order: -1;
     background-color: #ffffff;
     width: 93%;
-    gap: 20px;
-    padding-left: 0;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.box .selected #ordemServ{
+    margin-left: -100px;
 }
 .box .selected p{
     visibility: visible;
