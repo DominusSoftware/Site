@@ -688,9 +688,6 @@ ul:hover a:hover {
 .enviarCurriculo button img{
     width: 22px;
 }
-/* .enviarCurriculo button:disabled{
-    cursor: not-allowed;
-} */
 footer{
     padding: 9vh 1vh 3vh 12vw;
     width: 100%;
