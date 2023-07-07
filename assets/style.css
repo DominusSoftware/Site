@@ -3,6 +3,16 @@
     padding: 0;
     box-sizing: border-box;
 }
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 30px;
+  }
 body{
     background-image: linear-gradient(180deg, #141E52 0%, #121630 50%, #00051E 100%);
     display: flex;
@@ -359,11 +369,6 @@ ul:hover a:hover {
     justify-content: center;
     flex-direction: column;
     padding-top: 23vh;
-}
-.contVetorAul{
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
 }
 .vetorAzul{
     position: absolute;
@@ -1106,68 +1111,4 @@ footer hr{
     transition: 0.5s;
     cursor: pointer;
 }
-@media only screen and (max-width: 769px){
-    .parceiros{
-        display: none;
-    }
-    .parceirosButton button{
-        width: 100vw;
-        border-radius: 0 0 20px 20px ;
-        top: 0;
-        right: 0;
-    }
-    #menu{
-        display: none;
-    }
-    #inicio{
-        display: flex;
-        align-items: center;
-        margin-top: 10vh;
-        gap: 40px;
-        height: 100vh;
-    }
-    .slogan{
-        flex-direction: column;
-    }
-    #inicio img{
-        width: 60%;
-    }
-    .frase{
-        width: 20%;
-        display: flex;
-        flex-direction: column;
-    }
-    .cont-inicio{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
-    .frase p{
-        background-color: #03ACF2;
-        padding: 10px;
-        border-radius: 20px;
-        color: #ffffff;
-        font-size: 10px;
-        width: 90vw;
-        left: -20px;
-    }
-    .frase button{
-        background-color: #E3AF11;
-        color: #ffffff;
-        border-radius: 90px;
-        padding: 10px;
-        width: 160px;
-        border: none;
-        margin-left: 20vw;
-        font-size: 20px;
-        margin-top: -10px;
-    }
-    .saberMais{
-        font-size: 15px;
-        color: #ffffff;
-    }
-    .seta img{
-        width: 36px;
-    }
-}
+

@@ -1,0 +1,327 @@
+@media only screen and (max-width: 574px){
+    .parceiros{
+        display: none;
+    }
+    .parceirosButton button{
+        width: 100vw;
+        border-radius: 0 0 20px 20px ;
+        top: 0;
+        right: 0;
+    }
+    #menu{
+        display: none;
+    }
+    #inicio{
+        height: 100vh;
+        margin-top: 10vh;
+    }
+    .slogan{
+        width: 160px;
+        font-size: 10px;
+    }
+    #inicio img{
+        width: 90%;
+    }
+    .cont-inicio{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .frase p{
+        padding: 10px;
+        border-radius: 20px;
+        font-size: 10px;
+        width: 200px;
+        left: 0;
+    }
+    .frase button{
+        padding: 5px;
+        width: 100px;
+        margin-left: 30vw;
+        font-size: 10px;
+        margin-top: -10px;
+    }
+    .saberMais{
+        font-size: 8px;
+    }
+    .seta img{
+        display: none;
+    }
+    .frase{
+        width: 20%;
+        margin-left: -50%;
+    }
+    #servicos{
+        background-image: none;
+        background-size: cover;
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 40px;
+        padding-top: 0;
+        
+    }
+    .conServ{
+        font-size: 50px;
+    }
+    .serv{
+        flex-direction: column;
+        width: 70vw;
+        top: 70vh;
+    
+    }
+    .serv section{
+        font-size: 10px;
+        padding: 15px;
+    }
+    .serv img{
+        width: 50px;
+        height: 50px;
+    }
+     .descricaoServicos{
+        align-items: center;
+        width: 90vw;
+        margin-right: 10px;
+    } 
+
+    .box {
+        font-size: 10px;
+    }
+    .box .box-item {
+        width: 80px;
+        height: 80px;
+    }
+    #lojaOnline{
+        padding-left: 80px;
+    }
+    .box-item img{
+        height: 70px;
+    }
+    .box .selected {
+        width: 70%;
+        height: 170px;
+        padding: 0px;
+        position: absolute;
+        flex-direction: column;
+    }
+    .box .selected p{
+        visibility: visible;
+    }
+    .vetorAm{
+        display: none;
+    }
+    #planos{
+        height: 230vh;
+        flex-direction: column;
+        width: 100%; 
+        padding-top: 0vh;
+    }
+    .valorPlanos{
+        flex-direction: column;
+        margin-top: 0vh;
+    }
+    .bronze{
+        width: 100%;    
+    }
+    .bronze:hover, .prata:hover,.ouro:hover{
+        transform: scale(1);
+        transition: 0s;
+    }
+    .prata{
+        padding-left: 7%;
+        width: 95%;  
+    }
+    .ouro{
+        width: 105%;
+        margin-top: -12%;
+        padding-left: 12%;
+    }
+    .tituloPl{
+        padding-left: 0;
+    }
+    .plOpac{
+        font-size: 50px;
+        opacity: 15%;
+    }
+    .pltit{
+        font-size: 20px;
+    }
+    .divisoria{
+        width: 100px;
+        height: 10px;
+    }
+    .msgTeste{
+        display: none;
+    }
+    .vetorAzul{
+        display: none;
+    }
+    #contato{
+        height: 150vh;
+        padding-top: 0;
+        align-items: center;
+    }
+    .conteudoCont{
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 10vh;
+    }
+    .titCont{
+        font-size: 21px;
+        padding-left: 40vw;
+    }
+    .LocInf{
+        flex-direction: column-reverse;
+        gap: 30px;
+        padding-left: 0px;
+    }
+    .formEmail{
+        padding-left: 0px;
+    }
+    .maps iframe{
+        width: 250px;
+        height: 180px;
+    }
+    .conteudoCont{
+        flex-direction: column;
+        margin-top: 0vh;
+    }
+    .inf{
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        gap: 30px;
+        padding-left: 29vw;
+    }
+    .inf h2{
+        font-size: 12px;
+    }
+    .inf p{
+        font-size: 10px;
+    }
+    .tel, .end, .email{
+        flex-direction: column;
+        gap: 20px;
+    }
+    .formEmail img{
+        display: none;
+    }
+    .formulario{
+        display: flex;
+        flex-direction: column;
+        background-color: #FBCB1F;
+        width: 90%;
+        padding: 20px;
+        gap: 10px;
+        margin-top: 20px;
+        margin-left: 10px;
+    }
+    .formulario h1{
+        font-size: 17px;
+    }
+    .contForm{
+        gap: 10px;
+    }
+    .contForm input{
+        height: 4vh;
+        font-size: 10px;
+    }
+    .message{
+        height: 90px;
+    }
+    .contForm button img{
+        width: 110%;
+    }
+    #trabalheConosco{
+        width: 100%;
+        height: 110vh;
+    }
+    .titleTrabalhe{
+        background-color: #FBCB1F;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 15vh;
+        padding-top: 8px;
+        width: 100%;
+        margin-top: 57vh;
+    }
+    .tittleAzul{
+        width: 90%;
+        height: 14vh;
+        clip-path: polygon(40% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+    .tittleSub h1{
+        font-size: 15px;
+    }
+    .tittleSub h2{
+        font-size: 10px;
+    }
+    .formTrabalhe{
+        width: 90%;
+        height: 75vh;
+        padding: 20px;
+        gap: 20px;
+    }
+    .contTittleTrab h1{
+        font-size: 18px;
+    }
+    .contTittleTrab p{
+        font-size: 9px;
+    }
+    .formularioTrabalhe label{
+        font-size: 10px;
+    }
+    .formularioTrabalhe input{
+        border: none;
+        width: 65vw;
+        padding: 5px;
+        font-size: 9px;
+    }
+    .telCargo input {
+        width: 18vw;
+    }
+    .linkedln{
+        margin-left: -16px;
+    }
+    .textTrabalhe{
+        width: 60vw;
+        height: 8vh;
+    }
+    .textareaTrabalhe{
+        gap: 6px;
+        margin-left: -17px;
+    }
+    .pdf{
+        visibility: hidden;
+    }
+    .pdf img{
+        width: 15px;
+    }
+    .botaoAnexo{
+        width: 100%;
+        display: flex;
+        padding-left: 50vw;
+    }
+    .botaoAnexo label{
+        padding: 0vh 0vw 0vh 0vw;
+        font-size: 10px;
+        width: 180px;
+    }
+    .enviarCurriculo button{
+        width: 60vw;
+        font-size: 10px;
+        padding: 5px;
+        gap: 5px;
+        margin-right: 25%;
+        margin-top: 30px;
+    }
+    .enviarCurriculo button img{
+        width: 20px;
+    }
+}
