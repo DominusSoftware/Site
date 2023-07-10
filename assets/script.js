@@ -1,3 +1,9 @@
+//variaveis
+
+const menuToggle = document.querySelector('.menu-toggle');
+const menuLinks = document.querySelector('.menu-links');
+const arrow = document.querySelector('.arrow');
+
 // Hover para mostrar texto do serviços
 const pages = document.querySelectorAll(".box-item");
 pages.forEach(page => {
@@ -101,3 +107,38 @@ class FormSubmit {
     error: "<h1 class='error'>Não foi possível enviar sua mensagem.</h1>",
   });
   formSubmit.init();
+  // Menu responsivo
+
+  
+menuToggle.addEventListener('click', () => {
+  menuLinks.classList.toggle('show');
+  alterColor();
+});
+
+menuLinks.addEventListener('click', () => {
+  menuLinks.classList.toggle('show');
+})
+
+const alterColor = () => {
+  if (menuLinks.classList.contains('show')) {
+    menuToggle.style.color = '#E3AF11';
+    arrow.style.transform = 'rotate(0deg)'; 
+  } else {
+    menuToggle.style.color = 'white';
+    arrow.style.transform = 'rotate(180deg)';
+  }
+};
+// SERVIÇOS
+const openModalButton = document.querySelector("#open-modal");
+const closeModalButton = document.querySelector("#close-modal");
+const modal = document.querySelector("#modal");
+const fade = document.querySelector(".fade");
+
+const toggleModal = () => {
+  modal.classList.toggle("hide");
+  fade.classList.toggle("hide");
+};
+
+[openModalButton, closeModalButton, fade].forEach((el) => {
+  el.addEventListener("click", () => toggleModal());
+});
