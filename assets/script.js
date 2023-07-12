@@ -20,7 +20,10 @@ if (screenSize >= 768) {
 
   function selectedPage(page) {
     const pageSelected = document.querySelector(".box-item.selected");
-    pageSelected.classList.remove("selected");
+
+    if (pageSelected) {
+      pageSelected.classList.remove("selected");
+    }
 
     page.classList.add("selected");
 
@@ -130,34 +133,18 @@ const alterColor = () => {
     arrow.style.transform = "rotate(180deg)";
   }
 };
-// SERVIÇOS
-/* const openModalButton = document.querySelector(".box-item");
-const closeModalButton = document.querySelector(".boxClose");
-const modal = document.querySelector(".box");
-const fade = document.querySelector(".fade");
 
-const toggleModal = () => {
-  modal.classList.toggle("hide");
-  fade.classList.toggle("hide");
-  console.log('Click')
-};
-
-[openModalButton, closeModalButton, fade].forEach((el) => {
-  el.addEventListener("click", () => toggleModal());
-}); */
-
-if (window.innerWidth < 768) {
+if (screenSize < 768) {
+  // Função para abrir o modal e exibir as informações da div
   function openModal(divId) {
-    var modal = document.getElementById("myModal");
     let id = divId;
-    console.log(id)
-  
-    var divContent = document.getElementById(id).innerHTML;
-  
+    const modal = document.getElementById("myModal");
+    const divContent = document.getElementById(id).innerHTML;
+
     document.getElementById("modalContent").innerHTML = divContent;
     modal.style.display = "block";
   }
-  
+
   // Função para fechar o modal
   function closeModal() {
     var modal = document.getElementById("myModal");
