@@ -71,11 +71,18 @@ body {
     color: #ffffff;
     cursor: pointer;
 }
+.parceirosButton button:hover{
+    background-color: #028036 ;
+}
 
 .menu ul {
     /* 
     display: flex; */
     list-style: none;
+}
+.menu-links{
+    display: flex;
+    flex-direction: row;
 }
 
 ul li {
@@ -83,7 +90,7 @@ ul li {
     margin-right: 0.75em;
 }
 
-ul:hover a:hover {
+.links:hover {
     color: #B3E5FC;
     box-shadow: 0 2px 0 0 currentcolor;
 }
@@ -117,8 +124,11 @@ ul:hover a:hover {
     display: flex;
     align-items: center;
     margin-top: -2.5vh;
+    cursor: pointer;
 }
-
+.suporte:hover{
+    background-color: #C78F00;
+}
 .logo {
     display: flex;
     background-color: #00051E;
@@ -185,8 +195,11 @@ ul:hover a:hover {
     margin-left: 20vw;
     font-size: 20px;
     margin-top: -10px;
+    cursor: pointer;
 }
-
+.frase button:hover{
+    background-color: #C78F00;
+}
 .saberMais {
     font-size: 15px;
     color: #ffffff;
@@ -287,10 +300,6 @@ ul:hover a:hover {
     text-align: center;
     font-weight: 600;
 }
-
-
-
-
 .box .box-item {
     background-color: #ffffff;
     cursor: pointer;
@@ -302,7 +311,10 @@ ul:hover a:hover {
     border-radius: 10px;
     padding-left: 60px;
 }
-
+.box-item:hover{
+    transition: 0.5s;
+    box-shadow: 8px 8px 6px rgb(175, 171, 175);
+}
 #lojaOnline {
     padding-left: 90px;
 }
@@ -476,7 +488,7 @@ ul:hover a:hover {
     justify-content: flex-start;
     align-items: center;
     gap: 70px;
-    padding-left: 50px;
+    padding-left: 12vw;
 }
 
 .formEmail {
@@ -581,6 +593,7 @@ ul:hover a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .contForm button img {
@@ -616,17 +629,17 @@ ul:hover a:hover {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    height: 22vh;
+    height: 25vh;
     padding-top: 8px;
     width: 100%;
-    margin-top: 42vh;
+    margin-top: 40vh;
 }
 
 .tittleAzul {
     background-color: #141E52;
     width: 85%;
     height: 21vh;
-    margin-top: -3vh;
+    margin-top: -2vh;
     padding: 30px;
     display: flex;
     justify-content: flex-end;
@@ -794,6 +807,7 @@ select:focus {
     border-radius: 20px;
     border: 1px solid #524D4D;
     color: #000000;
+    cursor: pointer;
 }
 
 .enviarCurriculo {
@@ -814,9 +828,10 @@ select:focus {
     font-weight: 900;
     padding: 5px;
     gap: 10px;
-    margin-right: -40px;
+    margin-right: -5vw;
     margin-top: -8px;
     border-radius: 20px 0 0 20px;
+    cursor: pointer;
 }
 
 .enviarCurriculo button img {
@@ -833,6 +848,7 @@ footer {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-bottom: -20px;
 }
 
 .contFooter {
