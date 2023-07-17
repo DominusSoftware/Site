@@ -1,7 +1,115 @@
-@media only screen and (max-width: 574px){
-
+@media only screen and (max-width: 1000px){
+    .parceirosButton button {
+    right: 38vw;
 }
-@media only screen and (max-width: 768px) {
+    .menu-global{
+        width: 80%;
+    }
+    #inicio{
+        height: 80vh;
+    }
+    #inicio img {
+    width: 50%;
+}
+.serv {
+    width: 70vw;
+    top: 95vh;
+}
+.serv section {
+    font-size: 14px;
+    gap: 17px;
+    padding: 18px;
+}
+#servicos {
+    align-items: center;
+    padding-top: 0vh;
+}
+.descricaoServicos{
+    align-items: center;
+}
+.box{
+    width: 130%;
+}
+.box .box-item {
+    width: 120px;
+    height: 120px;
+}
+.box .selected {
+    order: -1;
+    width: 93%;
+}
+.vetorAm{
+    display: none;
+}
+.valorPlanos {
+    padding-left: 10vw;
+}
+.bronze {
+    height: 250px;
+}
+
+.bronze:hover,
+.prata:hover,
+.ouro:hover {
+    transform: scale(0);
+    border-radius: 0;
+    transition: 0;
+}
+
+.prata {
+    height: 350px;
+}
+
+.ouro {
+    height: 450px;
+    margin-top: -50px;
+}
+.msgTeste{
+   width: 40%; 
+}
+.vetorAzul{
+    top: 265vh;
+    height: 50vh;
+}
+#planos {
+    padding-top: 0vh;
+    height: 90vh;
+}
+#contato {
+    padding-top: 0vh;
+}
+.LocInf {
+    padding-left: 7vw;
+}
+.inf {
+    width: 45%;
+}
+.maps iframe {
+    width: 450px;
+    height: 300px;
+}
+.titleTrabalhe {
+    margin-top: 10vh;
+}
+.tittleAzul {
+    width: 85.5%;
+}
+.telCargo input {
+    width: 12.5vw;
+}
+.formTrabalhe{
+     height: 85vh;
+}
+.enviarCurriculo button {
+    margin-right: -4.1vw;
+    margin-top: -14px;
+}
+.dom img {
+    width: 100%;
+}
+}
+
+@media only screen and (max-width: 600px) {
     .parceiros {
         display: none;
     }
