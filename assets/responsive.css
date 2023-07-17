@@ -680,22 +680,18 @@
     margin-top: 20px;
     cursor: pointer;
 }
-
 .voltSelo button img {
     width: 40px;
 }
-
 .voltSelo a {
     text-decoration: none;
 }
-
 .contDecRep {
     display: flex;
     width: 100%;
     justify-content: flex-start;
     padding-left: 10vw;
 }
-
 .descRepresentante {
     color: #ffffff;
     width: 30%;

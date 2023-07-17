@@ -160,8 +160,7 @@
                 <section class="LocInf">
                     <div class="maps">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3637.99227396379!2d-51.67683982526826!3d-24.24204898695095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ec15945cbb2e85%3A0xb4103dd0ada89530!2sDominus%20Software!5e0!3m2!1spt-BR!2sbr!4v1686933665958!5m2!1spt-BR!2sbr"
-                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3638.2536966739995!2d-51.686043625526544!3d-24.232904086605046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ec3e29e1f18af3%3A0x599482a739e18549!2sR.%20Ataides%20Antunes%20de%20Proen%C3%A7a%2C%20305%20-%20Ivaipor%C3%A3%2C%20PR%2C%2086870-000!5e0!3m2!1spt-BR!2sbr!4v1689602760924!5m2!1spt-BR!2sbr" ></iframe>
                     </div>
                     <div class="inf">
                         <div class="tel">
@@ -182,14 +181,14 @@
                     <img src="/Images/email.png" alt="">
                     <div class="formulario">
                         <h1>Mande-nos um E-mail</h1>
-                        <form action="https://formsubmit.co/ajax/sistemadominus@gmail.com" method="POST" data-form>
+                        <form method="POST" data-form>
                             <div class="contForm">
                                 <input type="text" name="Nome" placeholder="Nome" id="name">
                                 <input type="email" name="Email" placeholder="E-mail" id="email">
                                 <textarea name="message" id="message" cols="30" rows="10" placeholder="Mensagem"
                                     class="message"></textarea>
                                 <div class="containerButton">
-                                    <div class="amareloButton"><button type="submit" data-button><img
+                                    <div class="amareloButton"><button type="submit" onclick="sendMailContact(event)" ><img
                                                 src="/Images/Enviar.png" alt=""></button></div>
                                 </div>
                             </div>
@@ -222,33 +221,33 @@
                     </div>
                     <div>
                         <label for="">E-mail</label>
-                        <input type="text" placeholder="Digite o seu e-mail" id="email" name="Email" required>
+                        <input type="text" placeholder="Digite o seu e-mail" id="email-job" name="Email" required>
                     </div>
                     <div class="telCargo">
                         <label for="">Telefone</label>
                         <input type="text" id="telefone" maxlength="15" placeholder="(__)_ ____ - ____" name="telefone">
                         <label for="">Cargo Desejado</label>
-                        <select name="" id="" name="cargo">
+                        <select name="" id="cargo" name="cargo">
                             <option value="">Selecione o cargo desejado</option>
-                            <option value="">Representante Comercial</option>
-                            <option value="">Analista de sistema</option>
-                            <option value="">Estagiário(a)</option>
-                            <option value="">Secretário(a)</option>
-                            <option value="">Suporte Técnico</option>
-                            <option value="">Desenvolvedor de T.I</option>
+                            <option value="Representante Comercial">Representante Comercial</option>
+                            <option value="Analista de sistema">Analista de sistema</option>
+                            <option value="Estagiário(a)">Estagiário(a)</option>
+                            <option value="Secretário(a)">Secretário(a)</option>
+                            <option value="Suporte Técnico">Suporte Técnico</option>
+                            <option value="Desenvolvedor">Desenvolvedor de T.I</option>
                         </select>
                     </div>
                     <div class="git">
                         <label for="">GitHub</label>
-                        <input type="text" name="" id="" placeholder="Cole o link do seu GitHub aqui" name="GitHub">
+                        <input type="text" id="git" placeholder="Cole o link do seu GitHub aqui" name="GitHub">
                     </div>
                     <div class="linkedln">
                         <label for="">Linkedln</label>
-                        <input type="text" placeholder="Cole o link do seu LinkedIn aqui" name="linkedln">
+                        <input type="text" id="linkedin" placeholder="Cole o link do seu LinkedIn aqui" name="linkedln">
                     </div>
                     <div class="textareaTrabalhe">
                         <label for="">Mensagem</label>
-                        <textarea name="" class="textTrabalhe" name="mensagem"></textarea>
+                        <textarea id="mensagem" class="textTrabalhe" name="mensagem"></textarea>
                     </div>
                     <div class="botaoAnexo">
                         <label for="pdf"><img src="/Images/Attach.png" alt="">
@@ -260,7 +259,7 @@
                     </div>
                 </div>
                 <div class="enviarCurriculo">
-                    <button data-button>
+                    <button data-button onclick="sendMailTrabalhe(event)">
                         <img src="/Images/Send.png" alt="">
                         <h1>Enviar Curriculo</h1>
                     </button>
@@ -342,7 +341,8 @@
                 <div id="modalContent"></div>
             </div>
         </div>
-        <script src="/assets/script.js"></script>
+        <script src="assets/script.js"></script>
+        <script src="assets/api.js"></script>
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
         <script>
             AOS.init();
