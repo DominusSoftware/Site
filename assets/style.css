@@ -212,6 +212,8 @@ ul li {
 #servicos {
     background-image: url("/Images/telaServicos.png");
     background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     height: 100vh;
     width: 100%;
     display: flex;
@@ -292,14 +294,14 @@ ul li {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    width: 130%;
+    width: 120%;
     flex: 1 1 33%;
     gap: 12px;
     color: #030D44;
     font-size: 12px;
     text-align: center;
     font-weight: 600;
-    margin-left: -40%;
+    margin-left: -15%;
 }
 .box .box-item {
     background-color: #ffffff;
@@ -356,7 +358,7 @@ ul li {
 
 .vetorAm {
     position: absolute;
-    top: 193vh;
+    top: 175vh;
     right: 0;
     z-index: 999;
 }
@@ -369,8 +371,7 @@ ul li {
     flex-direction: column;
     width: 100%;
     align-items: center;
-    padding-top: 0vh;
-    gap: 40px;
+    padding-top: 5vh;
 }
 
 .valorPlanos {
@@ -379,7 +380,7 @@ ul li {
     align-items: center;
     gap: 30px;
     width: 100%;
-    margin-top: -4vh;
+    margin-top: -20px;
 }
 
 .bronze {
@@ -429,7 +430,7 @@ ul li {
     width: 350px;
     height: 15px;
     border-radius: 0 20px 20px 0;
-    margin-top: -2vh;
+    margin-top: 2vh;
 }
 
 .contDiv {
@@ -464,7 +465,7 @@ ul li {
 
 .vetorAzul {
     position: absolute;
-    top: 290vh;
+    top: 280vh;
     left: 0;
     z-index: 990;
     height: 60vh;
@@ -632,8 +633,8 @@ ul li {
     align-items: center;
     height: 27vh;
     width: 100%;
-    margin-top: 17.5vh;
-    padding-top: 15.8px;
+    margin-top: 39vh;
+    padding-top: 12.5px;
 }
 
 .tittleAzul {

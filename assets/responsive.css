@@ -1,4 +1,101 @@
-@media only screen and (max-width: 1000px){
+@media only screen and (min-width: 1400px) and (max-width: 1527px) {
+    #servicos {
+        gap: 7%;
+
+    }
+    .box{
+        width: 100%;
+        margin-left: -10px;
+    }
+    .valorPlanos{
+        margin-top: 0;
+    }
+    .bronze {
+        height: 450px;
+    }
+    .prata {
+        height: 550px;
+    }
+    
+    .ouro {
+        height: 650px;
+        margin-top: -50px;
+    }
+    #contato{
+        height: 130vh;
+    }
+    .titCont {
+        font-size: 40px;
+        padding-left: 15vw;
+    }
+    .titleTrabalhe{
+        margin-top: 10vh;
+    }
+}
+@media only screen and (min-width: 1000px) and (max-width: 1439px) {
+    .titleTrabalhe{
+        margin-top: 0vh;
+    }
+}
+@media only screen and (min-width: 400px) and (max-width: 999px) {
+    #inicio{
+        height: 80vh;
+    }
+    #inicio img {
+    width: 50%;
+    }
+    .serv {
+        width: 70vw;
+        top: 95vh;
+    }
+    .bronze {
+        height: 280px;
+    }
+    
+    .bronze:hover,
+    .prata:hover,
+    .ouro:hover {
+        transform: scale(0);
+        border-radius: 0;
+        transition: 0;
+    }
+    
+    .prata {
+        height: 380px;
+    }
+    
+    .ouro {
+        height: 480px;
+        margin-top: -50px;
+    }
+    #planos {
+        padding-top: 0vh;
+        height: 90vh;
+        gap: 30px;
+    }
+    .msgTeste{
+        width: 40%; 
+     }
+    #contato {
+        padding-top: 0vh;
+        height: 120vh;
+    }
+    .titCont{
+        padding-left: 140px;
+    }
+    .LocInf {
+        padding-left: 5vw;
+        gap: 50px;
+    }
+    .maps iframe {
+        width: 450px;
+        height: 300px;
+    }
+    .dom img {
+        width: 100%;
+    }
+}
+/* @media only screen and (max-width: 1000px){
     .parceirosButton button {
     right: 38vw;
 }
@@ -123,9 +220,9 @@
 .dom img {
     width: 100%;
 }
-}
+} */
 
-@media only screen and (max-width: 800px) {
+/* @media only screen and (max-width: 800px) {
     .parceiros {
         display: none;
     }
@@ -177,7 +274,7 @@
     .menu-toggle .menu-title {
         display: flex;
         flex-direction: row;
-        /* margin-top: -10px; */
+        /* margin-top: -10px; 
     }
     .menu-toggle .logoMobile img{
         width: 80px;
@@ -324,8 +421,8 @@
         position: absolute;
         flex-direction: column;
     }
-/* Modal */
-/* Modal Style */
+    Modal 
+    Modal Style 
 
 #myModal {
     display: none;
@@ -342,7 +439,7 @@
     background-color: rgba(0, 0, 0, 0.7);
   }
   
-  /* Estilos do conteúdo do modal */
+  /* Estilos do conteúdo do modal 
   #myModal .modal-content {
     background-color: #fefefe;
     display: flex;
@@ -376,7 +473,7 @@
     color: black;
     text-decoration: none;
     cursor: pointer;
-  } */
+  } 
 
     .box .selected p {
         visibility: visible;
@@ -513,7 +610,7 @@
     .formEmail img {
         display: none;
     }
-    .contForm img{
+     .contForm img{
         display: flex;
     }
     .formulario {
@@ -778,7 +875,7 @@
         color: #ffffff;
         padding-right: 80px;
     }
-    /* CSS DO SEJA REPRESENTANTE */
+    /* CSS DO SEJA REPRESENTANTE 
 .inic {
     display: flex;
     align-items: center;
@@ -946,7 +1043,6 @@
 .butVantagens a {
     text-decoration: none;
 }
-}
 @media only screen and (max-width: 500px) {
     .tituloPl{
         margin-top: 0vh;
@@ -993,3 +1089,4 @@
         font-size: 7px;
     }
 }
+ */
