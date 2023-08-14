@@ -219,9 +219,10 @@ ul li {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     gap: 7px;
     padding-top: 3vh;
+    
 }
 
 .nossosServ {
@@ -301,7 +302,7 @@ ul li {
     font-size: 12px;
     text-align: center;
     font-weight: 600;
-    margin-left: -15%;
+    margin-left: 25vw;
 }
 .box .box-item {
     background-color: #ffffff;
@@ -390,7 +391,7 @@ ul li {
 .bronze:hover,
 .prata:hover,
 .ouro:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
     border-radius: 20px;
     transition: 2s;
 }
