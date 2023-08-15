@@ -249,21 +249,22 @@
                         <label for="">Mensagem</label>
                         <textarea id="mensagem" class="textTrabalhe" name="mensagem"></textarea>
                     </div>
-                    <div class="botaoAnexo">
-                        <label for="pdf"><img src="/Images/Attach.png" alt="">
-                            <p>Anexar arquivo em PDF</p>
-                        </label>
-                        <input class="pdf" id="pdf" type="file" accept=".doc, .docx, .pdf">
-
-                        </input>
+                    
+                </div>
+                <div class="footerform"><div class="botaoAnexo">
+                    <label for="pdf"><img src="/Images/Attach.png" alt="">
+                        <p>Anexar arquivo em PDF</p>
+                    </label>
+                    <input class="pdf" id="pdf" type="file" accept=".doc, .docx, .pdf">
+                    </input>
+                    <div class="enviarCurriculo">
+                        <button data-button onclick="sendMailTrabalhe(event)">
+                            <img src="/Images/Send.png" alt="">
+                            <h1>Enviar Curriculo</h1>
+                        </button>
                     </div>
-                </div>
-                <div class="enviarCurriculo">
-                    <button data-button onclick="sendMailTrabalhe(event)">
-                        <img src="/Images/Send.png" alt="">
-                        <h1>Enviar Curriculo</h1>
-                    </button>
-                </div>
+                </div></div>
+                
             </form>
 
         </section>

@@ -31,6 +31,7 @@
     .titleTrabalhe{
         margin-top: 15vh;
     }
+    
 }
 @media only screen and (min-width: 1000px) and (max-width: 1399px) {
     .titleTrabalhe{
@@ -110,7 +111,6 @@
         top: auto;
         bottom: 0;
         border-radius: 50px;
-        width: 100vw;
         border-radius: 50px 50px 0 0;
     }
     .menu {
@@ -276,7 +276,7 @@
         margin-right: 0%;
     }
     .box {
-        font-size: 10px;
+        font-size: 8px;
         width: 90%;
         margin-left: 0;
     }
@@ -314,15 +314,17 @@
     
       /* Estilos do conteúdo do modal */
     #myModal .modal-content {
+        margin-left: -21%;
+        justify-self: center;
         background-color: #fefefe;
         display: flex;
         justify-content: center;
         align-items: center;
         text-align: center;
-        padding: 0px;
+        padding: 30px;
         border: none;
-        width: 60%;
-        height: 20vh;
+        width: 100%;
+        height: 60%;
         max-width: 600px;
         border-radius: 20px;
       }
@@ -330,14 +332,14 @@
       /* Estilos do fechar do modal*/
     #myModal .close {
         position: absolute;
-        top: 27%;
+        top: 50%;
         right: 8%;
         color: #ffffff;
         background-color: #FBCB1F;
         float: right;
-        font-size: 20px;
+        font-size: 15px;
         font-weight: bold;
-        padding: 0px 5px;
+        padding: 0px 30%;
         border-radius: 50%;
       }
       
@@ -603,9 +605,9 @@
     }
 
     .botaoAnexo {
-        width: 100%;
+        padding: 0;
+        width: 300px;
         display: flex;
-        padding-left: 10%;
     }
 
     .botaoAnexo label {
@@ -613,20 +615,21 @@
         font-size: 10px;
         width: 180px;
     }
+    .footerform{
+        justify-content: center;
+    }
     .enviarCurriculo{
-        display: flex;
-        margin-left: 68.5%;
-        width: 200px;
+        width: 300px;
     }
     .enviarCurriculo button {
-        width: 60vw;
+        border-radius: 25px;
+        width: 130px;
         font-size: 10px;
         padding: 5px;
         gap: 5px;
         margin-right: 0;
         left: 0;
         margin-left: 0;
-        margin-top: 30px;
     }
 
     .enviarCurriculo button img {
@@ -695,7 +698,7 @@
     .dom {
         gap: 10px;
         position: absolute;
-        top: 600vh;
+        top: 610vh;
         right: 40px;
     }
 
@@ -743,17 +746,20 @@
     }
 }
 @media only screen and (max-width: 610px) {
+    .serv {
+        top: 80vh;
+    }
     #planos {
         height: 220vh;
-    }
-    .enviarCurriculo button {
-        margin-right: 0vw;
     }
     .dom {
         top: 550vh;
     }
 }
 @media only screen and (max-width: 500px) {
+    #inicio {
+        height: 50vh;
+    }
     .frase p {
         padding: 10px;
         font-size: 15px;
@@ -790,7 +796,7 @@
         margin-left: 0;
     }
     #planos {
-        height: 180vh;
+        height: 160vh;
     }
     .plOpac {
         font-size: 50px;
@@ -803,7 +809,7 @@
         width: 80%;
     }
     #contato {
-        height: 130vh;
+        height: 120vh;
 
     }
     .titCont {
@@ -848,11 +854,8 @@
     .botaoAnexo label {
         width: 170vw;
     }
-    .enviarCurriculo{
-        margin-left: 32%;
-    }
     .dom {
-        top: 560vh;
+        margin-top: -16rem;
     }
     .dom h1 {
         font-size: 10px;
@@ -868,9 +871,20 @@
 }
 @media only screen and (max-width: 400px) {
     .dom{
-        top: 558vh;
+        margin-top: -18rem;
     }
+
+    .enviarCurriculo {
+        justify-content: flex-end;
+        text-align: center;
+    }
+
 }
+/* @media only screen and (max-width: 300px) {
+    .dom{
+        margin-top: -50rem;
+    }
+} */
 /* 
     Modal 
     Modal Style 
@@ -1093,7 +1107,7 @@
 .butVantagens a {
     text-decoration: none;
 }
-@media only screen and (max-width: 500px) {
+/* @media only screen and (max-width: 500px) {
     .tituloPl{
         margin-top: 0vh;
     }
@@ -1101,24 +1115,17 @@
         height: 150vh;
     }
     .serv {
-        top: 72vh;
+        top: 80vh;
     }
     #servicos{
         width: 100%;
         height: 110vh;
-        margin-left: 0%
     }
     .nossosServ{
         padding: 0;
-        margin-left: -40%;
-    }
-    #servicos {
-        margin-left: -10%
     }
     .box{
-        width: 130%;
-        padding-right: 0%;
-        padding-left: 0;
+        width: 100%;
     }
     .titleTrabalhe{
         margin-top: 30vh;
@@ -1138,4 +1145,4 @@
     .direitosAutorais{
         font-size: 7px;
     }
-}
+} */
