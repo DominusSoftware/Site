@@ -682,11 +682,9 @@
         flex-direction: column;
         gap: 6px;
     }
-
     .imagensRedes img {
         width: 20px;
     }
-
     .contDmApp {
         display: flex;
         flex-direction: column;
@@ -701,17 +699,14 @@
         top: 610vh;
         right: 40px;
     }
-
     .dom h1 {
         font-size: 15px;
         color: #EFC11C;
     }
-
     .dom h2 {
         font-size: 12px;
         font-weight: 600;
     }
-
     .dom img {
         width: 170px;
     }
@@ -720,26 +715,21 @@
         display: flex;
         flex-direction: row;
     }
-
     .imgApp img {
         width: 100px;
     }
-
     .appStore {
         height: auto;
         margin-top: 7px;
     }
-
     .Nossosapps hr {
         width: 160px;
     }
-
     .direitosAutorais {
         text-transform: uppercase;
         color: #ffffff;
         font-size: 12px;
     }
-
     .direitosAutorais a {
         color: #ffffff;
         padding-right: 80px;
@@ -880,269 +870,3 @@
     }
 
 }
-/* @media only screen and (max-width: 300px) {
-    .dom{
-        margin-top: -50rem;
-    }
-} */
-/* 
-    Modal 
-    Modal Style 
-
-#myModal {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    padding-top: 15%;
-    padding-left: 30%;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.7);
-  } */
-
-  /* Estilos do conteúdo do modal 
-  #myModal .modal-content {
-    background-color: #fefefe;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0px;
-    border: none;
-    width: 60%;
-    height: 20vh;
-    max-width: 600px;
-    border-radius: 20px;
-  }
-  
-  /* Estilos do fechar do modal
-  /* #myModal .close {
-    position: absolute;
-    top: 27%;
-    right: 8%;
-    color: #ffffff;
-    background-color: #FBCB1F;
-    float: right;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 0px 5px;
-    border-radius: 50%;
-  }
-  
-  #myModal .close:hover,
-  #myModal .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  } */
-/* CSS DO SEJA REPRESENTANTE */
-.inic {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    font-family: 'Montserrat', sans-serif;
-    width: 100%;
-}
-
-.voltSelo {
-    width: 40%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.voltSelo button {
-    background-color: #121837;
-    border-radius: 20px;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 140px;
-    font-weight: 600;
-    font-size: 15px;
-    text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
-    gap: 1px;
-    border: none;
-    margin-top: 20px;
-    cursor: pointer;
-}
-.voltSelo button img {
-    width: 40px;
-}
-.voltSelo a {
-    text-decoration: none;
-}
-.contDecRep {
-    display: flex;
-    width: 100%;
-    justify-content: flex-start;
-    padding-left: 10vw;
-}
-.descRepresentante {
-    color: #ffffff;
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-}
-
-.titRep {
-    background-color: #19AD57;
-    padding: 7px;
-    width: 24vw;
-    border-radius: 20px;
-    font-size: 1vw;
-    z-index: 2;
-}
-
-.titRep h1 {
-    text-transform: uppercase;
-}
-
-.ExpRep {
-    background-color: rgba(0, 0, 0, 0.5);
-    border: 0.1px solid #19AD57;
-    width: 33vw;
-    border-radius: 20px;
-    padding: 20px;
-    margin-top: -10px;
-    z-index: 1;
-    text-indent: 20px;
-    text-align: justify;
-    -webkit-text-stroke: 0.5px black;
-}
-
-.saibaMaisRep {
-    display: flex;
-    width: 100%;
-    justify-content: flex-end;
-    z-index: 5;
-}
-
-.saibaMaisRep button {
-    background-color: #ffffff;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 170px;
-    padding: 6px;
-    color: #31BA45;
-    text-transform: uppercase;
-    font-weight: 900;
-    border-radius: 20px;
-    margin-top: -13px;
-    margin-right: -5vw;
-}
-
-.saibaMaisRep a {
-    text-decoration: none;
-}
-
-.saibaMaisRep img {
-    width: 30px;
-}
-
-.vantagens {
-    background-color: #23C166;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
-    height: 70vh;
-    gap: 50px;
-}
-
-.containerVant {
-    display: flex;
-    gap: 10vw;
-}
-
-.vantagensParc {
-    display: flex;
-    width: 30vw;
-    gap: 7px;
-}
-
-.vantagensParc hr {
-    border: none;
-    background-color: #ffffff;
-    width: 3px;
-    height: 10vh;
-}
-
-.vantagensParc h1 {
-    font-weight: 600;
-    color: #ffffff;
-}
-
-.vantagensParc img {
-    width: 60px;
-}
-
-.contVantagens {
-    display: flex;
-    flex-direction: column;
-    gap: 5vh;
-}
-
-.butVantagens button {
-    background-color: #ffffff;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 170px;
-    padding: 5px;
-    color: #31BA45;
-    text-transform: uppercase;
-    font-weight: 900;
-    border-radius: 50px;
-}
-.butVantagens a {
-    text-decoration: none;
-}
-/* @media only screen and (max-width: 500px) {
-    .tituloPl{
-        margin-top: 0vh;
-    }
-    #planos{
-        height: 150vh;
-    }
-    .serv {
-        top: 80vh;
-    }
-    #servicos{
-        width: 100%;
-        height: 110vh;
-    }
-    .nossosServ{
-        padding: 0;
-    }
-    .box{
-        width: 100%;
-    }
-    .titleTrabalhe{
-        margin-top: 30vh;
-    }
-    .enviarCurriculo{
-        margin-left: 43%;
-    }
-    .dom {
-        top: 522vh;
-    }
-    .dom h1{
-        font-size: 10px;
-    }
-    .domh2{
-        font-size: 8px;
-    }
-    .direitosAutorais{
-        font-size: 7px;
-    }
-} */

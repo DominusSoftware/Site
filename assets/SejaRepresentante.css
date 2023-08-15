@@ -1,0 +1,277 @@
+@media only screen and (max-width: 799px) {
+    .inic {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        font-family: 'Montserrat', sans-serif;
+        width: 100%;
+    }
+    
+    .voltSelo {
+        width: 40%;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .voltSelo button {
+        background-color: #121837;
+        border-radius: 20px;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 140px;
+        font-weight: 600;
+        font-size: 15px;
+        text-transform: uppercase;
+        font-family: 'Montserrat', sans-serif;
+        gap: 1px;
+        border: none;
+        margin-top: 20px;
+        cursor: pointer;
+    }
+    .voltSelo button img {
+        width: 40px;
+    }
+    .voltSelo a {
+        text-decoration: none;
+    }
+    .contDecRep {
+        display: flex;
+        width: 100%;
+        justify-content: flex-start;
+        padding-left: 10vw;
+    }
+    .descRepresentante {
+        color: #ffffff;
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .titRep {
+        background-color: #19AD57;
+        padding: 7px;
+        width: 24vw;
+        border-radius: 20px;
+        font-size: 1vw;
+        z-index: 2;
+    }
+    
+    .titRep h1 {
+        text-transform: uppercase;
+    }
+    
+    .ExpRep {
+        background-color: rgba(0, 0, 0, 0.5);
+        border: 0.1px solid #19AD57;
+        width: 33vw;
+        border-radius: 20px;
+        padding: 20px;
+        margin-top: -10px;
+        z-index: 1;
+        text-indent: 20px;
+        text-align: justify;
+        -webkit-text-stroke: 0.5px black;
+    }
+    
+    .saibaMaisRep {
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
+        z-index: 5;
+    }
+    
+    .saibaMaisRep button {
+        background-color: #ffffff;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 170px;
+        padding: 6px;
+        color: #31BA45;
+        text-transform: uppercase;
+        font-weight: 900;
+        border-radius: 20px;
+        margin-top: -13px;
+        margin-right: -5vw;
+    }
+    
+    .saibaMaisRep a {
+        text-decoration: none;
+    }
+    
+    .saibaMaisRep img {
+        width: 30px;
+    }
+    
+    .vantagens {
+        background-color: #23C166;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        height: 70vh;
+        gap: 50px;
+    }
+    
+    .containerVant {
+        display: flex;
+        gap: 10vw;
+    }
+    
+    .vantagensParc {
+        display: flex;
+        width: 30vw;
+        gap: 7px;
+    }
+    
+    .vantagensParc hr {
+        border: none;
+        background-color: #ffffff;
+        width: 3px;
+        height: 10vh;
+    }
+    
+    .vantagensParc h1 {
+        font-weight: 600;
+        color: #ffffff;
+    }
+    
+    .vantagensParc img {
+        width: 60px;
+    }
+    
+    .contVantagens {
+        display: flex;
+        flex-direction: column;
+        gap: 5vh;
+    }
+    
+    .butVantagens button {
+        background-color: #ffffff;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 170px;
+        padding: 5px;
+        color: #31BA45;
+        text-transform: uppercase;
+        font-weight: 900;
+        border-radius: 50px;
+    }
+    .butVantagens a {
+        text-decoration: none;
+    }
+    footer {
+        padding: 6vh 0vh 10vh 8vw;
+        gap: 30px;
+        flex-direction: column;
+        width: 100% !important;
+    }
+
+    .contFooter {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    footer h1 {
+        font-size: 15px;
+    }
+
+    footer p {
+        font-size: 15px;
+    }
+
+    footer div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .atenCont,
+    .endRedes {
+        flex-direction: column;
+        gap: 20px;
+        width: 60vw;
+    }
+
+    .endRedes {
+        gap: 3vh;
+        margin-top: 0px;
+        width: 50vw;
+    }
+
+    .InfContato {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .imagensRedes img {
+        width: 20px;
+    }
+
+    .contDmApp {
+        display: flex;
+        flex-direction: column;
+        gap: 10vh;
+        width: 50vw;
+        margin-top: 0px;
+    }
+
+    .dom {
+        gap: 10px;
+        position: absolute;
+        top: 610vh;
+        right: 40px;
+    }
+
+    .dom h1 {
+        font-size: 15px;
+        color: #EFC11C;
+    }
+
+    .dom h2 {
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .dom img {
+        width: 170px;
+    }
+
+    .imgApp {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .imgApp img {
+        width: 100px;
+    }
+
+    .appStore {
+        height: auto;
+        margin-top: 7px;
+    }
+
+    .Nossosapps hr {
+        width: 160px;
+    }
+
+    .direitosAutorais {
+        text-transform: uppercase;
+        color: #ffffff;
+        font-size: 12px;
+    }
+
+    .direitosAutorais a {
+        color: #ffffff;
+        padding-right: 80px;
+    }
+    }
