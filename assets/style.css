@@ -832,7 +832,7 @@ select:focus {
     padding: 5px;
     gap: 10px;
     margin-right: 0;
-    border-radius: 20px 0 0 20px;
+    border-radius: 20px;
     cursor: pointer;
 }
 .enviarCurriculo button img {
