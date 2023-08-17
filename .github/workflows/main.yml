@@ -11,6 +11,6 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
-        server: ftp.sistemasdominus.com.br
-        username: sistemasdominus1
-        password: Dominus8326102021#
+        server: ${{secrets.ftp_host}}
+        username: ${{secrets.ftp_user}}
+        password: ${{secrets.ftp_pass}}
