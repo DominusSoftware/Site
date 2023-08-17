@@ -91,3 +91,18 @@ if (screenSize < 768) {
     modal.style.display = "none";
   }
 }
+document.cookie = "exemploCookie=meuValor; SameSite=None; Secure";
+document.getElementById("accept-cookies").addEventListener("click", function() {
+  // Cria um cookie temporário ao clicar em "Aceitar"
+  var dataExpiracao = new Date();
+  dataExpiracao.setDate(dataExpiracao.getDate() + 30); // Define a expiração para 30 dias no futuro
+  document.cookie = "cookieAceito=true; expires=" + dataExpiracao.toUTCString();
+
+  // Oculta a mensagem de permissão
+  document.getElementById("cookie-banner").style.display = "none";
+});
+window.addEventListener("load", function() {
+  if (document.cookie.indexOf("cookieAceito=true") !== -1) {
+      document.getElementById("cookie-banner").style.display = "none";
+  }
+});
