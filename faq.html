@@ -464,6 +464,32 @@
       color: var(--muted)
     }
 
+    /* === Filtro: destaque de termos === */
+    mark.search-hit {
+      background: rgba(124, 92, 255, .35);
+      padding: 0 .2em;
+      border-radius: 4px;
+    }
+
+    /* === Esconde categorias sem resultados durante a busca === */
+    .cat-list li.is-hidden {
+      display: none;
+    }
+
+    /* === Pill de contagem na categoria === */
+    .cat-btn .cat-pill {
+      margin-left: auto;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid #2a3560;
+      color: #c5c9f1;
+      background: rgba(124, 92, 255, .12);
+    }
+
+
     /* =========================================
        RESPONSIVE
     ==========================================*/
@@ -909,6 +935,48 @@
     const qs = (s, el = document) => el.querySelector(s);
     const qsa = (s, el = document) => Array.from(el.querySelectorAll(s));
 
+    // Guarda/restaura HTML original para não "acumular" <mark>
+    function ensureOriginal(node) {
+      if (!node) return;
+      if (!node.dataset._orig) node.dataset._orig = node.innerHTML;
+    }
+    function restoreOriginal(node) {
+      if (!node) return;
+      if (node.dataset._orig) node.innerHTML = node.dataset._orig;
+    }
+
+    // Escapa regex + cria regex global case-insensitive
+    function makeQueryRegex(q) {
+      const esc = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      return new RegExp(esc, 'ig');
+    }
+
+    // Aplica destaque em nós .q (pergunta) e .answer (conteúdo)
+    function highlightInDetails(detailsEl, query) {
+      const qEl = detailsEl.querySelector('.q');
+      const aEl = detailsEl.querySelector('.answer');
+
+      // sempre garantir "original"
+      ensureOriginal(qEl);
+      ensureOriginal(aEl);
+
+      if (!query) {
+        restoreOriginal(qEl);
+        restoreOriginal(aEl);
+        return;
+      }
+      const rx = makeQueryRegex(query);
+      if (qEl) {
+        const src = qEl.dataset._orig || qEl.innerHTML;
+        qEl.innerHTML = src.replace(rx, m => `<mark class="search-hit">${m}</mark>`);
+      }
+      if (aEl) {
+        const src = aEl.dataset._orig || aEl.innerHTML;
+        aEl.innerHTML = src.replace(rx, m => `<mark class="search-hit">${m}</mark>`);
+      }
+    }
+
+
     const CAT_KEY = "dominus.faq.activeCategory";
     const SEARCH_KEY = "dominus.faq.search";
 
@@ -956,36 +1024,115 @@
       // Persistência
       if (persist) localStorage.setItem(CAT_KEY, cat);
 
-      // Busca + contagem no grupo ativo
       if (resetSearch) {
         searchInput.value = '';
         localStorage.removeItem(SEARCH_KEY);
       }
+      // sempre re-aplicar com o valor atual da busca (pode estar vazio)
       filterQuestions(searchInput.value || '');
     }
+    // Garante um .cat-pill em cada botão de categoria para mostrar contagem
+    const catLis = qsa('.cat-list > li');
+    catButtons.forEach(btn => {
+      if (!btn.querySelector('.cat-pill')) {
+        const span = document.createElement('span');
+        span.className = 'cat-pill';
+        span.hidden = true;          // só aparece quando há busca
+        span.textContent = '0';
+        btn.appendChild(span);
+      }
+    });
 
 
     // Busca com contagem e empty state
     function filterQuestions(q) {
       const query = (q || '').trim().toLowerCase();
       let anyVisible = false;
-      let count = 0;
+      let totalCount = 0;
 
-      groups.forEach(group => {
-        if (group.hidden) return;
-        const ds = qsa('details', group);
-        ds.forEach(d => {
-          const text = d.textContent.toLowerCase();
-          const match = !query || text.includes(query);
-          d.style.display = match ? '' : 'none';
-          if (match) { anyVisible = true; count++; }
-        });
+      // mapa categoria -> {count, li, btn, group}
+      const catIndex = {};
+      catButtons.forEach((btn, i) => {
+        const cat = btn.dataset.cat;
+        const li = btn.closest('li');
+        const group = qs(`.faq[data-group="${cat}"]`);
+        catIndex[cat] = { count: 0, li, btn, group };
       });
 
-      emptyState.style.display = anyVisible ? 'none' : 'block';
-      resultCount.textContent = `${count} resultado${count === 1 ? '' : 's'}`;
-    }
+      // percorre apenas o grupo visível quando NÃO há busca
+      const activeCat = catButtons.find(b => b.getAttribute('aria-selected') === 'true')?.dataset.cat;
 
+      // decide o(s) grupo(s) a serem avaliados
+      const targetGroups = query
+        ? Object.values(catIndex).map(x => x.group)            // com busca: todos os grupos
+        : [catIndex[activeCat]?.group].filter(Boolean);        // sem busca: só o ativo
+
+      // percorre grupos e aplica filtro + highlight
+      targetGroups.forEach(group => {
+        const cat = group.dataset.group;
+        const ds = qsa('details', group);
+        let localCount = 0;
+
+        ds.forEach(d => {
+          // texto completo do <details> (pergunta + resposta)
+          const text = d.textContent.toLowerCase();
+          const match = !query || text.includes(query);
+
+          // mostrar/ocultar a pergunta
+          d.style.display = match ? '' : 'none';
+
+          // highlight (apenas em matches)
+          highlightInDetails(d, match ? query : '');
+
+          if (match) {
+            anyVisible = true;
+            localCount++;
+            totalCount++;
+          }
+        });
+
+        catIndex[cat].count = localCount;
+      });
+
+      // Oculta/mostra categorias conforme a busca
+      Object.values(catIndex).forEach(({ count, li, btn, group }) => {
+        const pill = btn.querySelector('.cat-pill');
+
+        if (query) {
+          // com busca: mostra só categorias com resultados
+          li.classList.toggle('is-hidden', count === 0);
+          pill.hidden = false;
+          pill.textContent = String(count);
+
+          // mostra grupo apenas se tiver resultados; esconde os demais
+          group.hidden = count === 0;
+        } else {
+          // sem busca: todas categorias visíveis; pill some; só grupo da aba ativa aparece
+          li.classList.remove('is-hidden');
+          pill.hidden = true;
+
+          const isActive = btn.dataset.cat === activeCat;
+          group.hidden = !isActive;
+          // remove qualquer highlight residual
+          qsa('details', group).forEach(d => highlightInDetails(d, ''));
+        }
+      });
+
+      // Se há busca e a aba ativa não tem resultados, troca para a primeira com resultados
+      if (query) {
+        const activeHas = catIndex[activeCat]?.count || 0;
+        if (!activeHas) {
+          const firstWith = Object.values(catIndex).find(x => x.count > 0);
+          if (firstWith) {
+            setCategory(firstWith.group.dataset.group, { persist: false, resetSearch: false });
+          }
+        }
+      }
+
+      // estados de empty e contador total
+      emptyState.style.display = anyVisible ? 'none' : 'block';
+      setCount(totalCount);
+    }
 
     // Deep link para abrir pergunta #q-...
     function openFromHash() {
@@ -1079,10 +1226,8 @@
     const savedSearch = localStorage.getItem(SEARCH_KEY) || '';
     if (savedSearch) {
       searchInput.value = savedSearch;
-      filterQuestions(savedSearch);
-    } else {
-      filterQuestions('');
     }
+    filterQuestions(savedSearch);   // <- garante estado inicial correto
     openFromHash();
     window.addEventListener('hashchange', openFromHash);
   </script>
