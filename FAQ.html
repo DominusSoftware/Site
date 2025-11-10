@@ -7,19 +7,25 @@
   <link rel="icon" href="/Images/Design_sem_nome-removebg-preview (1).png" type="image/x-icon">
 
   <style>
+    /* =========================================
+       DESIGN TOKENS
+    ==========================================*/
     :root{
       --bg: #0b0e14;
       --card: #121826;
       --card-2: #0e1422;
       --text: #e7e7ea;
       --muted:#9aa4b2;
-      --brand:#ffd54a;         /* tira amarela */
-      --accent:#7c5cff;        /* detalhe roxo */
+      --brand:#ffd54a;     /* amarelo */
+      --brand-2:#f6bd00;
+      --accent:#7c5cff;    /* roxo */
       --line:#1e2741;
       --ok:#16a34a;
       --danger:#ef4444;
-      --radius: 16px;
+      --radius: 14px;
       --shadow: 0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);
+      --focus: 0 0 0 3px rgba(124,92,255,.35), 0 0 0 1px #7c5cff inset;
+      --font: 500 16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Ubuntu, Arial;
     }
 
     *{box-sizing:border-box}
@@ -31,27 +37,25 @@
         radial-gradient(900px 500px at -10% 10%, rgba(255,213,74,.10), transparent 60%),
         var(--bg);
       color:var(--text);
-      font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial;
+      font: var(--font);
       letter-spacing:.2px;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    @media (prefers-reduced-motion: reduce){
+      *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important }
+      html{ scroll-behavior: auto }
     }
 
     a,button{cursor:pointer}
     img{max-width:100%;display:block}
+    button{font:inherit}
 
-    /* ====== Layout ====== */
-    .wrap{
-      max-width:1100px;
-      margin-inline:auto;
-      padding:24px;
-    }
-
-    .topbar{
-      display:flex;
-      gap:12px;
-      align-items:center;
-      justify-content:space-between;
-      margin-bottom:24px;
-    }
+    /* =========================================
+       LAYOUT
+    ==========================================*/
+    .wrap{ max-width:1100px; margin-inline:auto; padding:24px }
+    .topbar{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:20px }
 
     .back-btn{
       display:inline-flex;align-items:center;gap:10px;
@@ -61,21 +65,19 @@
       padding:10px 14px;border-radius:999px;
       box-shadow: var(--shadow);
       transition:transform .15s ease, background .2s ease, border-color .2s ease;
-      text-decoration:none;
-      font-weight:600;
+      text-decoration:none;font-weight:700;
     }
     .back-btn:hover{ transform: translateY(-1px); border-color:#2a355c }
-    .back-btn img{ width:18px;height:18px; filter:contrast(0) brightness(2)}
+    .back-btn:focus-visible{ outline:none; box-shadow: var(--focus) }
+    .back-btn img{ width:18px;height:18px; filter:contrast(0) brightness(2) }
 
-    .title{
-      display:flex;align-items:center;gap:14px;
-    }
+    .title{ display:flex;align-items:center;gap:16px; margin-bottom:4px }
     .title .bar{
-      width:6px;height:36px;border-radius:6px;background:linear-gradient(180deg,var(--brand),#f6bd00);
-      box-shadow:0 0 0 4px rgba(255,213,74,.12);
+      width:8px;height:42px;border-radius:8px;background:linear-gradient(180deg,var(--brand),var(--brand-2));
+      box-shadow:0 0 0 5px rgba(255,213,74,.12);
     }
-    .title h1{ margin:0;font-size: clamp(24px, 4vw, 36px); letter-spacing:.5px}
-    .subtitle{ margin:6px 0 0; color:var(--muted); font-size:14px}
+    .title h1{ margin:0;font-size: clamp(24px, 4vw, 36px); letter-spacing:.4px }
+    .subtitle{ margin:6px 0 0; color:var(--muted); font-size:14px }
 
     .grid{
       display:grid;
@@ -84,7 +86,9 @@
       margin-top:22px;
     }
 
-    /* ====== Sidebar / Tabs ====== */
+    /* =========================================
+       SIDEBAR / TABS
+    ==========================================*/
     .sidebar{
       position:sticky; top:16px;
       border:1px solid var(--line);
@@ -94,10 +98,20 @@
       padding:14px;
       height:max-content;
     }
-    .sidebar h2{
-      margin:4px 8px 10px; font-size:14px; color:var(--muted); font-weight:700; text-transform:uppercase; letter-spacing:.12em;
+    .sidebar header{
+      display:flex; align-items:center; justify-content:space-between; gap:10px; margin:2px 6px 10px;
     }
-    .cat-list{ display:flex; flex-direction:column; gap:8px; list-style:none; padding:0; margin:0;}
+    .sidebar h2{ font-size:13px; color:var(--muted); font-weight:800; text-transform:uppercase; letter-spacing:.14em; margin:0 }
+    .sidebar .utils{ display:flex; gap:8px }
+    .icon-btn{
+      display:inline-flex; align-items:center; gap:6px;
+      background: #171d2f; color:#cfd3e8; border:1px solid #29355b;
+      padding:8px 10px; border-radius:10px; font-weight:700; font-size:12px;
+    }
+    .icon-btn:hover{ background:#1b2340; border-color:#33406e }
+    .icon-btn:focus-visible{ outline:none; box-shadow: var(--focus) }
+
+    .cat-list{ display:flex; flex-direction:column; gap:8px; list-style:none; padding:0; margin:8px 0 0;}
     .cat-btn{
       width:100%;
       display:flex; align-items:center; gap:10px;
@@ -108,7 +122,7 @@
       color:var(--text);
       text-align:left;
       transition: border-color .2s ease, background .2s, transform .15s;
-      font-weight:600;
+      font-weight:700;
     }
     .cat-btn svg{ width:18px;height:18px; opacity:.9}
     .cat-btn:hover{ transform: translateY(-1px); border-color:#273054 }
@@ -117,8 +131,11 @@
       border-color:#33406e;
       box-shadow: inset 0 0 0 1px rgba(124,92,255,.25), 0 10px 20px rgba(124,92,255,.12);
     }
+    .cat-btn:focus-visible{ outline:none; box-shadow: var(--focus) }
 
-    /* ====== Content ====== */
+    /* =========================================
+       CONTENT PANEL
+    ==========================================*/
     .panel{
       border:1px solid var(--line);
       border-radius: var(--radius);
@@ -130,7 +147,7 @@
     }
 
     .group-title{
-      display:flex; align-items:center; justify-content:space-between;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
       padding:12px 14px; margin:4px;
       border-radius:12px;
       background: linear-gradient(180deg, #12192e, #0e1424);
@@ -139,7 +156,37 @@
     .group-title h3{ margin:0; font-size:16px; letter-spacing:.2px }
     .group-title small{ color:var(--muted) }
 
-    /* ====== Accordion ====== */
+    .panel-toolbar{
+      display:flex; align-items:center; gap:8px; margin:10px 4px 4px;
+      flex-wrap: wrap;
+    }
+
+    .search{
+      position:relative; flex: 1 1 340px;
+    }
+    .search input{
+      width:100%;
+      background: linear-gradient(180deg, #131a2f, #0f1628);
+      border:1px solid #1b2644;
+      color:var(--text);
+      padding:12px 40px 12px 42px;
+      border-radius:12px; outline:none; transition:border-color .2s; font-size:15px;
+    }
+    .search input:focus{ border-color:#2b3a6a; box-shadow: var(--focus) }
+    .search svg{
+      position:absolute; left:14px; top:50%; transform:translateY(-50%);
+      width:18px; height:18px; opacity:.8;
+    }
+    .search .clear{
+      position:absolute; right:10px; top:50%; transform:translateY(-50%);
+      background:transparent;border:0;color:var(--muted);font-size:14px
+    }
+
+    .count{ color:var(--muted); font-weight:700; font-size:12px; padding:8px 10px; border:1px solid #29355b; border-radius:10px; background:#171d2f }
+
+    /* =========================================
+       ACCORDION (DETAILS)
+    ==========================================*/
     .faq{
       display:flex; flex-direction:column; gap:10px;
       margin:10px 4px 4px;
@@ -152,7 +199,7 @@
       overflow:hidden;
       transition:border-color .2s ease, background .2s ease;
     }
-    details[open]{ border-color:#2b3a6a; background: linear-gradient(180deg, #151d38, #0c1326); }
+    details[open]{ border-color:#2b3a6a; background: linear-gradient(180deg, #151d38, #0c1326) }
 
     summary{
       display:flex; align-items:center; gap:12px;
@@ -161,21 +208,17 @@
       cursor:pointer;
       outline:none;
       user-select:none;
-      font-weight:650;
+      font-weight:800;
     }
     summary::-webkit-details-marker{ display:none }
-    .chev{
-      width:18px;height:18px; flex:0 0 18px;
-      transition: transform .2s ease;
-      opacity:.8
-    }
+    summary:focus-visible{ outline:none; box-shadow: var(--focus) inset }
+
+    .chev{ width:18px;height:18px; flex:0 0 18px; transition: transform .2s ease; opacity:.8 }
     details[open] .chev{ transform: rotate(90deg)}
 
-    .q{
-      flex:1;
-    }
+    .q{ flex:1 }
     .badge{
-      font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.14em;
+      font-size:11px; font-weight:900; text-transform:uppercase; letter-spacing:.14em;
       padding:4px 8px; border-radius:999px;
       border:1px solid #2a3560;
       color:#c5c9f1; background: rgba(124,92,255,.12);
@@ -186,57 +229,39 @@
       padding:0 16px 16px;
       color:#d6d8e7;
       border-top:1px dashed #223058;
-      background:
-        linear-gradient(0deg, rgba(124,92,255,.06), transparent 40%);
+      background: linear-gradient(0deg, rgba(124,92,255,.06), transparent 40%);
       font-size:15px;
     }
-
     .answer p{ margin:12px 0 }
     .answer ul{ margin:10px 0 0 18px }
     .answer li{ margin:6px 0; color:#cfd3e8 }
 
-    /* ====== Search ====== */
-    .search{
-      position:relative; margin:0 4px 12px;
-    }
-    .search input{
-      width:100%;
-      background: linear-gradient(180deg, #131a2f, #0f1628);
-      border:1px solid #1b2644;
-      color:var(--text);
-      padding:12px 40px 12px 42px;
-      border-radius:12px;
-      outline:none;
-      transition:border-color .2s;
-      font-size:15px;
-    }
-    .search input:focus{ border-color:#2b3a6a }
-    .search svg{
-      position:absolute; left:14px; top:50%; transform:translateY(-50%);
-      width:18px; height:18px; opacity:.8;
-    }
-    .search .clear{
-      position:absolute; right:10px; top:50%; transform:translateY(-50%);
-      background:transparent;border:0;color:var(--muted);font-size:14px
-    }
+    .empty{ display:none; text-align:center; padding:40px 12px; color:var(--muted) }
 
-    /* ====== Empty ====== */
-    .empty{
-      display:none; text-align:center; padding:40px 12px; color:var(--muted);
-    }
-
-    /* ====== Responsive ====== */
+    /* =========================================
+       RESPONSIVE
+    ==========================================*/
     @media (max-width: 980px){
-      .grid{ grid-template-columns: 1fr; }
-      .sidebar{ position:relative; top:auto; }
+      .grid{ grid-template-columns: 1fr }
+      .sidebar{ position:relative; top:auto }
       .cat-list{ display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:10px }
       .cat-btn{ justify-content:center }
       .group-title{ display:none }
+      .panel-toolbar{ gap:10px }
+    }
+
+    /* Print-friendly */
+    @media print{
+      .sidebar, .topbar, .search, .panel-toolbar .icon-btn { display:none !important }
+      body{ background:#fff; color:#000 }
+      .panel{ border:0; box-shadow:none; background:#fff }
+      .answer{ border:0; background:#fff; color:#000 }
     }
   </style>
 </head>
 <body>
   <main class="wrap" id="FAQ">
+    <!-- Top -->
     <header class="topbar">
       <a class="back-btn" href="index.html" aria-label="Voltar para a página inicial">
         <img src="/Images/seta voltar.png" alt="" aria-hidden="true">
@@ -244,80 +269,91 @@
       </a>
     </header>
 
+    <!-- Title -->
     <section class="title">
       <div class="bar" aria-hidden="true"></div>
       <div>
         <h1>FAQ</h1>
-        <p class="subtitle">Perguntas frequentes sobre requisitos, avaliação, cobrança, emissão de nota, PDV, suporte e mais.</p>
+        <p class="subtitle">Perguntas frequentes sobre requisitos, avaliação, cobrança, emissão de nota, PDV, suporte, boletos, cancelamento e parcerias.</p>
       </div>
     </section>
 
+    <!-- Layout -->
     <section class="grid" aria-labelledby="faq-heading">
       <!-- Sidebar / Tabs -->
-      <aside class="sidebar" role="tablist" aria-label="Categorias do FAQ">
-        <h2>Categorias</h2>
-        <ul class="cat-list">
-          <li><button class="cat-btn" role="tab" aria-selected="true" data-cat="basicas">
-            <!-- icon -->
+      <aside class="sidebar" aria-label="Categorias do FAQ">
+        <header>
+          <h2>Categorias</h2>
+          <div class="utils">
+            <button type="button" class="icon-btn" id="expandAll" title="Expandir todas as perguntas">Expandir tudo</button>
+            <button type="button" class="icon-btn" id="collapseAll" title="Recolher todas as perguntas">Recolher tudo</button>
+          </div>
+        </header>
+
+        <ul class="cat-list" role="tablist" aria-orientation="vertical">
+          <li><button class="cat-btn" role="tab" aria-selected="true" data-cat="basicas" aria-controls="panel-basicas">
             <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l9 4.5v9L12 21 3 16.5v-9L12 3z" stroke="currentColor" stroke-width="1.5"/></svg>
             Básicas
           </button></li>
-          <li><button class="cat-btn" role="tab" aria-selected="false" data-cat="avaliacao">
+          <li><button class="cat-btn" role="tab" aria-selected="false" data-cat="avaliacao" aria-controls="panel-avaliacao">
             <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10M7 12h10M7 17h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
             Período de avaliação
           </button></li>
-          <li><button class="cat-btn" role="tab" aria-selected="false" data-cat="cobranca">
+          <li><button class="cat-btn" role="tab" aria-selected="false" data-cat="cobranca" aria-controls="panel-cobranca">
             <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16v10H4zM8 7V5m8 2V5M7 13h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
             Forma de cobrança
           </button></li>
-          <li><button class="cat-btn" role="tab" aria-selected="false" data-cat="nota">
+          <li><button class="cat-btn" role="tab" aria-selected="false" data-cat="nota" aria-controls="panel-nota">
             <svg viewBox="0 0 24 24" fill="none"><path d="M6 3h9l3 3v15H6z" stroke="currentColor" stroke-width="1.5"/><path d="M9 12h6M9 9h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
             Emissão de Nota
           </button></li>
-          <li><button class="cat-btn" role="tab" aria-selected="false" data-cat="pdv">
+          <li><button class="cat-btn" role="tab" aria-selected="false" data-cat="pdv" aria-controls="panel-pdv">
             <svg viewBox="0 0 24 24" fill="none"><path d="M5 7h14v10H5zM8 7V5h8v2" stroke="currentColor" stroke-width="1.5"/><path d="M9 12h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
             PDV
           </button></li>
-          <li><button class="cat-btn" role="tab" aria-selected="false" data-cat="suporte">
+          <li><button class="cat-btn" role="tab" aria-selected="false" data-cat="suporte" aria-controls="panel-suporte">
             <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M9 10a3 3 0 116 0c0 2-3 2-3 4m0 3h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
             Treinamento & Suporte
           </button></li>
-          <li><button class="cat-btn" role="tab" aria-selected="false" data-cat="boletos">
+          <li><button class="cat-btn" role="tab" aria-selected="false" data-cat="boletos" aria-controls="panel-boletos">
             <svg viewBox="0 0 24 24" fill="none"><path d="M5 5h14v14H5z" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v14m4-14v14m4-14v14" stroke="currentColor" stroke-width="1.5"/></svg>
             Integração de Boletos
           </button></li>
-          <li><button class="cat-btn" role="tab" aria-selected="false" data-cat="cancelamento">
+          <li><button class="cat-btn" role="tab" aria-selected="false" data-cat="cancelamento" aria-controls="panel-cancelamento">
             <svg viewBox="0 0 24 24" fill="none"><path d="M7 7l10 10M17 7L7 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
             Cancelamento
           </button></li>
-          <li><button class="cat-btn" role="tab" aria-selected="false" data-cat="parceria">
+          <li><button class="cat-btn" role="tab" aria-selected="false" data-cat="parceria" aria-controls="panel-parceria">
             <svg viewBox="0 0 24 24" fill="none"><path d="M7 12a5 5 0 0110 0v6H7v-6z" stroke="currentColor" stroke-width="1.5"/><path d="M9 18v1a3 3 0 003 3 3 3 0 003-3v-1" stroke="currentColor" stroke-width="1.5"/></svg>
             Parceria & Representação
           </button></li>
         </ul>
       </aside>
 
-      <!-- Content -->
-      <section class="panel" id="faq-content">
+      <!-- Panel -->
+      <section class="panel" id="faq-content" role="region" aria-labelledby="faq-heading">
         <div class="group-title">
           <h3 id="faq-heading">Perguntas Frequentes</h3>
           <small id="current-cat-label">Básicas</small>
         </div>
 
-        <div class="search" role="search">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 19a8 8 0 100-16 8 8 0 000 16z" stroke="currentColor" stroke-width="1.5"/><path d="M21 21l-3.5-3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-          <input id="searchInput" type="search" placeholder="Busque por palavras-chave (ex.: PDV, nota, boletos…)" autocomplete="off" aria-label="Buscar perguntas">
-          <button class="clear" type="button" id="clearSearch" aria-label="Limpar busca">✕</button>
+        <div class="panel-toolbar">
+          <div class="search" role="search">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 19a8 8 0 100-16 8 8 0 000 16z" stroke="currentColor" stroke-width="1.5"/><path d="M21 21l-3.5-3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <input id="searchInput" type="search" placeholder="Busque por palavras-chave (ex.: PDV, nota, boletos…)" autocomplete="off" aria-label="Buscar perguntas">
+            <button class="clear" type="button" id="clearSearch" aria-label="Limpar busca">✕</button>
+          </div>
+          <div class="count" id="resultCount" aria-live="polite">0 resultado(s)</div>
         </div>
 
-        <!-- ====== Groups ====== -->
+        <!-- ========= Groups ========= -->
 
         <!-- Básicas -->
-        <div class="faq" data-group="basicas">
-          <details>
+        <div class="faq" data-group="basicas" id="panel-basicas" role="tabpanel" aria-labelledby="tab-basicas">
+          <details id="q-requisitos">
             <summary>
               <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-              <span class="q">Quais requisitos para utilizar o sistema?</span>
+              <span class="q">Quais são os requisitos para utilizar o sistema?</span>
               <span class="badge">Requisitos</span>
             </summary>
             <div class="answer">
@@ -327,33 +363,33 @@
                 <li>Processador <strong>Dual Core 2.0 GHz</strong> (Pentium ou similar)</li>
                 <li>Sistema operacional atualizado e <strong>navegador moderno</strong></li>
               </ul>
-              <p>Para módulos avançados (PDV, fiscal, etc.), podemos orientar o dimensionamento ideal conforme o seu cenário.</p>
+              <p>Para módulos avançados (PDV, fiscal etc.), orientamos o dimensionamento ideal conforme o seu cenário.</p>
             </div>
           </details>
 
-          <details>
+          <details id="q-online">
             <summary>
               <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
               <span class="q">Preciso estar conectado à internet para utilizar o sistema?</span>
               <span class="badge">Conectividade</span>
             </summary>
             <div class="answer">
-              <p>O sistema funciona preferencialmente <strong>online</strong> para sincronização e recursos em nuvem. Alguns módulos podem ter <em>operações contingenciais</em> e sincronizam quando a conexão volta — confirme conforme o seu plano.</p>
+              <p>O sistema funciona preferencialmente <strong>online</strong> para sincronização e recursos em nuvem. Alguns módulos têm <em>contingência</em> e sincronizam quando a conexão volta (disponibilidade conforme plano).</p>
             </div>
           </details>
 
-          <details>
+          <details id="q-remoto">
             <summary>
               <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-              <span class="q">Consigo acessar o sistema mesmo fora do estabelecimento?</span>
+              <span class="q">Posso acessar o sistema fora do estabelecimento?</span>
               <span class="badge">Acesso remoto</span>
             </summary>
             <div class="answer">
-              <p>Sim. A aplicação é acessível via navegador com login seguro. Recursos podem variar por perfil de acesso e plano contratado.</p>
+              <p>Sim. O acesso é via navegador com login seguro. Recursos expostos dependem do seu plano e do perfil de acesso.</p>
             </div>
           </details>
 
-          <details>
+          <details id="q-migracao">
             <summary>
               <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
               <span class="q">Já utilizo um sistema. Vou perder meus dados na migração?</span>
@@ -364,63 +400,63 @@
             </div>
           </details>
 
-          <details>
+          <details id="q-teste">
             <summary>
               <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-              <span class="q">Posso ver ou testar o sistema gratuitamente?</span>
+              <span class="q">Posso testar o sistema gratuitamente?</span>
               <span class="badge">Teste</span>
             </summary>
             <div class="answer">
-              <p>Sim. Disponibilizamos <strong>período de avaliação</strong> com dados de demonstração. Fale conosco para ativação e onboarding.</p>
+              <p>Sim. Disponibilizamos <strong>período de avaliação</strong> com dados de demonstração. Entre em contato para ativação e onboarding.</p>
             </div>
           </details>
         </div>
 
         <!-- Avaliação -->
-        <div class="faq" data-group="avaliacao" hidden>
-          <details>
+        <div class="faq" data-group="avaliacao" id="panel-avaliacao" role="tabpanel" aria-labelledby="tab-avaliacao" hidden>
+          <details id="q-avaliacao">
             <summary>
               <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
               <span class="q">Como funciona o período de avaliação?</span>
               <span class="badge">Avaliação</span>
             </summary>
             <div class="answer">
-              <p>Oferecemos avaliação por tempo limitado com suporte de onboarding. Ao final, você pode migrar para um plano sem perder os dados criados durante o teste.</p>
+              <p>Oferecemos avaliação por tempo limitado com suporte de onboarding. Ao final, você migra para um plano <strong>sem perder dados</strong> criados no teste.</p>
             </div>
           </details>
         </div>
 
         <!-- Cobrança -->
-        <div class="faq" data-group="cobranca" hidden>
-          <details>
+        <div class="faq" data-group="cobranca" id="panel-cobranca" role="tabpanel" aria-labelledby="tab-cobranca" hidden>
+          <details id="q-cobranca">
             <summary>
               <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
               <span class="q">Quais são as formas de cobrança?</span>
               <span class="badge">Financeiro</span>
             </summary>
             <div class="answer">
-              <p>Trabalhamos com planos mensais e anuais, com cobranças via cartão, PIX ou boleto. Há descontos progressivos para anualidade.</p>
+              <p>Planos mensais e anuais, com cobrança via <strong>cartão</strong>, <strong>PIX</strong> ou <strong>boleto</strong>. Oferecemos descontos para anualidade.</p>
             </div>
           </details>
         </div>
 
         <!-- Emissão de Nota -->
-        <div class="faq" data-group="nota" hidden>
-          <details>
+        <div class="faq" data-group="nota" id="panel-nota" role="tabpanel" aria-labelledby="tab-nota" hidden>
+          <details id="q-fiscal">
             <summary>
               <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-              <span class="q">O sistema emite NF-e/NFS-e?</span>
+              <span class="q">O sistema emite NF-e e NFS-e?</span>
               <span class="badge">Fiscal</span>
             </summary>
             <div class="answer">
-              <p>Sim, com certificados A1/A3 e integrações municipais/estaduais compatíveis. A disponibilidade pode variar conforme sua cidade/UF.</p>
+              <p>Sim, com certificados A1/A3 e integrações municipais/estaduais compatíveis. A disponibilidade varia por cidade/UF.</p>
             </div>
           </details>
         </div>
 
         <!-- PDV -->
-        <div class="faq" data-group="pdv" hidden>
-          <details>
+        <div class="faq" data-group="pdv" id="panel-pdv" role="tabpanel" aria-labelledby="tab-pdv" hidden>
+          <details id="q-pdv">
             <summary>
               <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
               <span class="q">O PDV funciona com impressora térmica e TEF?</span>
@@ -433,8 +469,8 @@
         </div>
 
         <!-- Suporte -->
-        <div class="faq" data-group="suporte" hidden>
-          <details>
+        <div class="faq" data-group="suporte" id="panel-suporte" role="tabpanel" aria-labelledby="tab-suporte" hidden>
+          <details id="q-suporte">
             <summary>
               <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
               <span class="q">Há treinamento e suporte?</span>
@@ -447,43 +483,43 @@
         </div>
 
         <!-- Boletos -->
-        <div class="faq" data-group="boletos" hidden>
-          <details>
+        <div class="faq" data-group="boletos" id="panel-boletos" role="tabpanel" aria-labelledby="tab-boletos" hidden>
+          <details id="q-boletos">
             <summary>
               <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
               <span class="q">Posso emitir boletos pelo sistema?</span>
               <span class="badge">Financeiro</span>
             </summary>
             <div class="answer">
-              <p>Integramos com bancos e gateways para emissão e conciliação de boletos. A configuração depende da sua instituição financeira.</p>
+              <p>Integramos com bancos e gateways para emissão e conciliação automática. A configuração depende da sua instituição financeira.</p>
             </div>
           </details>
         </div>
 
         <!-- Cancelamento -->
-        <div class="faq" data-group="cancelamento" hidden>
-          <details>
+        <div class="faq" data-group="cancelamento" id="panel-cancelamento" role="tabpanel" aria-labelledby="tab-cancelamento" hidden>
+          <details id="q-cancelamento">
             <summary>
               <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
               <span class="q">Como faço para cancelar?</span>
               <span class="badge">Conta</span>
             </summary>
             <div class="answer">
-              <p>O cancelamento pode ser solicitado pelo painel administrativo. Seus dados ficam disponíveis para exportação por um período determinado.</p>
+              <p>O cancelamento é solicitado pelo painel administrativo. Seus dados ficam disponíveis para exportação por um período determinado.</p>
             </div>
           </details>
         </div>
 
         <!-- Parceria -->
-        <div class="faq" data-group="parceria" hidden>
-          <details>
+        <div class="faq" data-group="parceria" id="panel-parceria" role="tabpanel" aria-labelledby="tab-parceria" hidden>
+          <details id="q-parceria">
             <summary>
               <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
               <span class="q">Como ser parceiro ou representante?</span>
               <span class="badge">Parcerias</span>
             </summary>
             <div class="answer">
-              <p>Temos programa de parcerias com comissionamento e materiais de venda. Entre em contato para receber o media kit e regras.</p>
+              <p>Programa com comissionamento, playbook e materiais de venda. Fale conosco para receber o media kit e as regras de elegibilidade.</p>
             </div>
           </details>
         </div>
@@ -494,80 +530,173 @@
   </main>
 
   <script>
-    // ===== Tabs por categoria =====
-    const catButtons = Array.from(document.querySelectorAll('.cat-btn'));
-    const groups = Array.from(document.querySelectorAll('.faq'));
-    const currentLabel = document.getElementById('current-cat-label');
+    // ==============================
+    // Utilities
+    // ==============================
+    const qs  = (s, el=document) => el.querySelector(s);
+    const qsa = (s, el=document) => Array.from(el.querySelectorAll(s));
 
-    function setCategory(cat){
+    const CAT_KEY = "dominus.faq.activeCategory";
+    const SEARCH_KEY = "dominus.faq.search";
+
+    const catButtons  = qsa('.cat-btn');
+    const groups      = qsa('.faq');
+    const currentLbl  = qs('#current-cat-label');
+    const searchInput = qs('#searchInput');
+    const clearBtn    = qs('#clearSearch');
+    const emptyState  = qs('#emptyState');
+    const resultCount = qs('#resultCount');
+    const expandAll   = qs('#expandAll');
+    const collapseAll = qs('#collapseAll');
+
+    function setCount(n){
+      resultCount.textContent = `${n} resultado${n===1?'':'s'}`;
+    }
+
+    function visibleDetailsInActiveGroup(){
+      const g = groups.find(g => !g.hidden);
+      if (!g) return [];
+      return qsa('details', g).filter(d => d.style.display !== 'none');
+    }
+
+    function setCategory(cat, {persist=true, resetSearch=true} = {}){
       catButtons.forEach(b => b.setAttribute('aria-selected', String(b.dataset.cat === cat)));
       groups.forEach(g => {
         const match = g.dataset.group === cat;
         g.hidden = !match;
-        // fecha todos os details ao trocar de aba
-        if (match) g.querySelectorAll('details[open]').forEach(d => d.open = false);
+        if (match){
+          // fecha todos ao trocar de aba
+          qsa('details[open]', g).forEach(d => d.open = false);
+        }
       });
-      currentLabel.textContent = catButtons.find(b => b.dataset.cat === cat)?.textContent.trim() || '';
-      // limpa busca ao trocar de aba
-      searchInput.value = '';
-      filterQuestions('');
+      const label = catButtons.find(b => b.dataset.cat === cat)?.textContent.trim() || '';
+      currentLbl.textContent = label;
+
+      if (persist) localStorage.setItem(CAT_KEY, cat);
+      if (resetSearch){
+        searchInput.value = '';
+        localStorage.removeItem(SEARCH_KEY);
+        filterQuestions('');
+      }else{
+        // re-aplicar busca existente
+        filterQuestions(searchInput.value || '');
+      }
     }
 
+    // Busca com contagem e empty state
+    function filterQuestions(q){
+      const query = (q || '').trim().toLowerCase();
+      let anyVisible = false;
+      let count = 0;
+
+      groups.forEach(group => {
+        if (group.hidden) return;
+        const ds = qsa('details', group);
+        ds.forEach(d => {
+          const text = d.textContent.toLowerCase();
+          const match = !query || text.includes(query);
+          d.style.display = match ? '' : 'none';
+          if (match){ anyVisible = true; count++; }
+        });
+      });
+
+      emptyState.style.display = anyVisible ? 'none' : 'block';
+      setCount(count);
+    }
+
+    // Deep link para abrir pergunta #q-...
+    function openFromHash(){
+      const id = location.hash.replace('#','');
+      if (!id) return;
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      const group = el.closest('.faq');
+      if (group){
+        setCategory(group.dataset.group, {persist:true, resetSearch:false});
+      }
+      el.open = true;
+      el.scrollIntoView({behavior:'smooth', block:'center'});
+      // foco acessível no summary
+      setTimeout(() => { el.querySelector('summary')?.focus({preventScroll:true}); }, 200);
+    }
+
+    // Expandir/Recolher tudo do grupo ativo (após filtros)
+    function expandOrCollapseAll(open){
+      visibleDetailsInActiveGroup().forEach(d => d.open = open);
+    }
+
+    // ==============================
+    // Listeners
+    // ==============================
     catButtons.forEach(btn => {
       btn.addEventListener('click', () => setCategory(btn.dataset.cat));
       btn.addEventListener('keydown', (e) => {
+        const i = catButtons.indexOf(btn);
         if (e.key === 'ArrowRight' || e.key === 'ArrowDown'){
-          const i = catButtons.indexOf(btn);
+          e.preventDefault();
           const next = catButtons[(i+1) % catButtons.length];
           next.focus();
         }
         if (e.key === 'ArrowLeft' || e.key === 'ArrowUp'){
-          const i = catButtons.indexOf(btn);
+          e.preventDefault();
           const prev = catButtons[(i-1+catButtons.length) % catButtons.length];
           prev.focus();
         }
       });
     });
 
-    // ===== Busca =====
-    const searchInput = document.getElementById('searchInput');
-    const clearSearch = document.getElementById('clearSearch');
-    const emptyState = document.getElementById('emptyState');
-
-    function filterQuestions(q){
-      const query = q.trim().toLowerCase();
-      let anyVisible = false;
-
-      groups.forEach(group => {
-        if (group.hidden) return;
-        const details = Array.from(group.querySelectorAll('details'));
-        details.forEach(d => {
-          const text = d.textContent.toLowerCase();
-          const match = text.includes(query);
-          d.style.display = match ? '' : 'none';
-          if (match) anyVisible = true;
-        });
-      });
-
-      emptyState.style.display = anyVisible ? 'none' : 'block';
-    }
-
-    searchInput.addEventListener('input', e => filterQuestions(e.target.value));
-    clearSearch.addEventListener('click', () => {
+    searchInput.addEventListener('input', e => {
+      const v = e.target.value;
+      localStorage.setItem(SEARCH_KEY, v);
+      filterQuestions(v);
+    });
+    clearBtn.addEventListener('click', () => {
       searchInput.value = '';
+      localStorage.removeItem(SEARCH_KEY);
       filterQuestions('');
       searchInput.focus();
     });
 
-    // ===== Open/close acessível =====
+    // ESC fecha todos os details abertos no grupo ativo
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape'){
-        document.querySelectorAll('details[open]').forEach(d => d.open = false);
+        visibleDetailsInActiveGroup().forEach(d => d.open = false);
       }
     });
 
-    // init
-    setCategory('basicas');
+    // Expandir/Recolher tudo
+    expandAll.addEventListener('click', () => expandOrCollapseAll(true));
+    collapseAll.addEventListener('click', () => expandOrCollapseAll(false));
+
+    // Abrir/fechar atualiza hash (deep link)
+    qsa('details').forEach(d => {
+      d.addEventListener('toggle', () => {
+        if (d.open){
+          history.replaceState(null, '', `#${d.id}`);
+        }else{
+          if (location.hash === `#${d.id}`) history.replaceState(null, '', ' ');
+        }
+      });
+    });
+
+    // ==============================
+    // Init (persistência leve)
+    // ==============================
+    const savedCat = localStorage.getItem(CAT_KEY) || 'basicas';
+    setCategory(savedCat, {persist:false, resetSearch:false});
+
+    const savedSearch = localStorage.getItem(SEARCH_KEY) || '';
+    if (savedSearch){
+      searchInput.value = savedSearch;
+      filterQuestions(savedSearch);
+    }else{
+      filterQuestions('');
+    }
+
+    // Se houver hash, abre a pergunta correspondente
+    openFromHash();
+    window.addEventListener('hashchange', openFromHash);
   </script>
 </body>
 </html>
