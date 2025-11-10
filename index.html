@@ -1,364 +1,626 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dominus Software</title>
-    <link rel="stylesheet" href="assets/style.css">
-    <link rel="stylesheet" href="/assets/responsive.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" href="/Images/Design_sem_nome-removebg-preview (1).png" type="image/x-icon">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,600;0,800;1,100&display=swap"
-        rel="stylesheet">
-    <!-- animação scroll -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dominus Software</title>
+  <link rel="icon" href="/Images/Design_sem_nome-removebg-preview (1).png" type="image/x-icon">
+
+  <!-- Fonte -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,600;0,800;1,100&display=swap" rel="stylesheet">
+
+  <style>
+    /* =================== RESET & BASE =================== */
+    * { margin:0; padding:0; box-sizing:border-box }
+    html { scroll-behavior:smooth }
+    body{
+      background-image: linear-gradient(180deg, #141E52 0%, #121630 50%, #00051E 100%);
+      display:flex; align-items:center; justify-content:flex-start; flex-direction:column;
+      font-family:'Montserrat',system-ui,Segoe UI,Roboto,Arial,sans-serif;
+      width:100%; color:#fff; overflow-x:hidden;
+    }
+    ::-webkit-scrollbar{ width:8px }
+    ::-webkit-scrollbar-track{ background:#00051E }
+    ::-webkit-scrollbar-thumb{ background:rgba(255,255,255,.7); border-radius:30px }
+
+    a{ color:inherit; text-decoration:none }
+    img{ max-width:100%; display:block }
+    button{ cursor:pointer }
+
+    /* =================== CORES (mantidas) =================== */
+    :root{
+      --azul-escuro:#00051E;
+      --azul:#141E52;
+      --azul-2:#030D44;
+      --amarelo:#E3AF11;
+      --amarelo-2:#EFC11C;
+      --amarelo-3:#FBCB1F;
+      --verde:#23C166;
+      --verde-2:#028036;
+      --ciano:#03ACF2;
+      --branco:#ffffff;
+      --preto:#010118;
+    }
+
+    /* =================== BARRA PARCEIROS =================== */
+    .parceiros{ background-color:var(--verde); width:100%; display:flex; justify-content:center; align-items:flex-end; height:3vh }
+    .parceirosButton{ position:relative; width:100% }
+    .parceirosButton a{ position:absolute; inset:auto 50% auto auto; transform:translateX(50%); top:4px; z-index:3 }
+    .parceirosButton button{
+      background-color:var(--verde); border:none; border-radius:20px; padding:6px 18px; color:#fff; font-weight:700; text-transform:uppercase
+    }
+    .parceirosButton button:hover{ background-color:var(--verde-2) }
+
+    /* =================== HEADER / MENU =================== */
+    header.menu-global{
+      position:sticky; top:0; z-index:10; width:100%;
+      display:flex; justify-content:center; background:var(--azul-escuro); border-radius:0 0 50px 50px;
+    }
+    nav.menu{
+      width:min(1200px, 95%); display:flex; align-items:center; justify-content:space-between; padding:14px 10px;
+    }
+
+    .menu-toggle{ display:none; align-items:center; justify-content:space-between; width:100% }
+    .menu-title{ display:flex; align-items:center; gap:6px; font-weight:800; text-transform:uppercase }
+    .menu-toggle .menubuttons{ display:flex; align-items:center; gap:10px }
+    .menu-toggle .logoMobile img{ width:110px }
+
+    .menu-links{ list-style:none; display:flex; align-items:center; gap:18px }
+    .menu-links .logo img{ width:100px }
+    .menu a.links{ padding:8px 2px; transition:.2s }
+    .menu a.links:hover{ color:#B3E5FC; box-shadow:0 2px 0 0 currentcolor }
+
+    .suporte{
+      border:none; background-color:var(--amarelo); color:#fff; border-radius:999px;
+      height:34px; padding:0 16px; text-transform:uppercase; display:flex; align-items:center; gap:6px; font-weight:800
+    }
+    .suporte:hover{ background-color:#C78F00 }
+
+    /* =================== HERO =================== */
+    #inicio{ display:flex; flex-direction:column; align-items:center; gap:32px; padding-top:18vh; min-height:92vh; text-align:center }
+    .slogan h1{ font-size: clamp(20px, 2.6vw, 38px); font-weight:800 }
+    .slogan .tec{ color:var(--amarelo) }
+
+    .cont-inicio{ display:flex; align-items:center; justify-content:center; gap:32px; flex-wrap:wrap }
+    .cont-inicio img{ width:min(680px, 90vw) }
+
+    .frase{ width:min(560px, 90vw); display:flex; flex-direction:column; gap:14px }
+    .frase p{
+      background-color:var(--ciano); color:#fff; padding:22px; border-radius:40px;
+      font-size:16px; text-align:left
+    }
+    .frase .contate button{
+      background-color:var(--amarelo); color:#fff; border-radius:999px; padding:10px 18px; border:none; font-size:18px; font-weight:800
+    }
+    .frase .contate button:hover{ background:#C78F00 }
+
+    .saberMais{ font-size:14px; opacity:.9 }
+    .seta img{ width:30px }
+
+    /* =================== BLOCOS SERVIÇOS EM DESTAQUE =================== */
+    .serv{
+      display:flex; gap:10px; width:min(1100px, 90vw);
+      position:relative; margin-top:-8vh; z-index:2; flex-wrap:wrap; justify-content:center
+    }
+    .serv section{
+      display:flex; align-items:center; gap:16px; padding:18px 22px; border-radius:16px; min-width:240px; flex:1; color:#fff
+    }
+    .serv img{ width:42px; height:42px }
+    .PrePago{ background-image:linear-gradient(180deg,#2994FB 0%, #044B8E 100%) }
+    .Certif{ background-image:linear-gradient(180deg,#2DD473 0%, #028036 100%) }
+    .Suport{ background-image:linear-gradient(180deg,#FBCB1F 0%, #C78F00 100%); color:#111 }
+
+    /* =================== SEÇÃO SERVIÇOS =================== */
+    #servicos{
+      background-image:url("/Images/telaServicos.png");
+      background-repeat:no-repeat; background-position:center; background-size:cover;
+      width:100%; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; padding:60px 0
+    }
+    .nossosServ{ text-align:center }
+    .conhecaServ{ font-size:20px }
+    .conServ{ color:var(--amarelo); font-size: clamp(28px, 5vw, 50px); text-transform:uppercase }
+
+    .descricaoServicos{ width:min(1100px, 92vw); display:flex; justify-content:center }
+    .contServ{ width:100% }
+    .box{
+      display:flex; flex-wrap:wrap; gap:14px; justify-content:center; color:#030D44; font-size:12px; font-weight:700
+    }
+    .box .box-item{
+      background:#fff; cursor:pointer; width:160px; height:140px; border-radius:12px; display:flex; align-items:center; justify-content:center; padding:10px; position:relative; transition:.2s
+    }
+    .box .box-item:hover{ box-shadow:8px 8px 16px rgba(0,0,0,.2); transform:translateY(-2px) }
+    .box .box-item img{ height:80px }
+    .box .box-item p{ position:absolute; opacity:0; visibility:hidden }
+
+    .box .selected{
+      order:-1; width:100%; min-height:140px; padding:18px; background:#fff; display:flex; align-items:center; justify-content:center; border-radius:12px
+    }
+    .box .selected p{ position:static; opacity:1; visibility:visible; color:#030D44; font-size:14px; text-align:center; padding:0 12px }
+
+    /* =================== ELEMENTO DECORATIVO =================== */
+    .vetorAm{ position:absolute; top:175vh; right:0; z-index:1 }
+    .vetorAm img{ max-height:30vh; opacity:.6 }
+
+    /* =================== PLANOS =================== */
+    #planos{
+      background-color:#fff; color:#141E52; width:100%;
+      display:flex; flex-direction:column; align-items:center; padding:60px 0; gap:20px
+    }
+    .tituloPl{ width:min(1100px, 92vw); line-height:1 }
+    .plOpac{ font-size:56px; text-transform:uppercase; color:#141E52; opacity:.15 }
+    .pltit{ font-size:28px; padding-left:3vw }
+    .contDiv{ width:min(1100px, 92vw) }
+    .divisoria{ background:#141E52; width:350px; height:15px; border-radius:0 20px 20px 0; margin-top:12px }
+
+    .valorPlanos{ display:flex; align-items:center; justify-content:center; gap:24px; width:100%; flex-wrap:wrap; margin-top:10px }
+    .bronze{ height:320px }
+    .prata{ height:420px }
+    .ouro{ height:520px }
+    .bronze:hover,.prata:hover,.ouro:hover{ transform:scale(1.06); border-radius:20px; transition:.4s }
+
+    .msgTeste{
+      background-color:#19AD57; color:#fff; display:flex; align-items:center; gap:10px;
+      font-size:14px; padding:10px 16px; border-radius:20px 20px 0 20px; width:min(520px, 90vw)
+    }
+    .msgTeste img{ width:28px }
+
+    /* =================== CONTATO =================== */
+    #contato{
+      background-image: linear-gradient(to right, var(--amarelo-2) 0, var(--amarelo-2) 40%, var(--azul-2) 40%, var(--azul-2) 60%);
+      width:100%; min-height:120vh; display:flex; align-items:center; justify-content:center; padding:80px 0
+    }
+    .vetorAzul{ position:absolute; left:0; max-height:60vh; opacity:.5; transform:translateY(-20px) }
+    .conteudoCont{ width:min(1100px, 92vw); display:flex; flex-direction:column; gap:26px }
+    .titCont{ font-size:32px; color:var(--amarelo-3); font-weight:700; padding-left:12px; text-transform:uppercase }
+
+    .infoForm{ display:flex; gap:40px; align-items:flex-start; flex-wrap:wrap }
+    .LocInf{ display:flex; gap:30px; align-items:center; flex-wrap:wrap }
+    .maps iframe{ width:min(560px, 90vw); height:380px; border:0; border-radius:12px }
+
+    .inf{ display:flex; flex-direction:column; gap:26px; width:min(420px, 90vw) }
+    .inf h2{ color:var(--amarelo-3); font-size:16px; text-decoration:underline }
+    .inf p{ color:#fff; line-height:1.5 }
+
+    .formEmail{ display:flex; align-items:flex-start; gap:16px; flex-wrap:wrap }
+    .formulario{
+      display:flex; flex-direction:column; background:var(--amarelo-3); color:#141E52;
+      width:min(560px, 90vw); padding:18px; border-radius:20px 20px 0 20px; gap:12px
+    }
+    .formulario h1{ font-size:24px; color:#030D44 }
+    .contForm{ display:flex; flex-direction:column; gap:10px }
+    .contForm input, .contForm textarea{
+      border:none; padding:12px; font-weight:600; border-radius:8px; font-family:inherit
+    }
+    .message{ resize:none; min-height:110px }
+    .containerButton{ display:flex; justify-content:flex-end }
+    .amareloButton{ background:var(--amarelo-3); border-radius:50%; padding:6px }
+    .contForm button{
+      width:50px; height:50px; border:none; border-radius:50%; background:var(--verde-2); display:flex; align-items:center; justify-content:center
+    }
+    .contForm button:hover{ filter:brightness(.95) }
+    .contForm button img{ width:110% }
+
+    /* =================== FOOTER =================== */
+    footer{
+      background:var(--preto); width:100%; color:#fff; padding:60px 0 24px;
+      display:flex; flex-direction:column; align-items:center; gap:28px
+    }
+    .contFooter{
+      width:min(1100px, 92vw); display:grid; grid-template-columns: 1.2fr .9fr 1.9fr; gap:36px
+    }
+    footer h1{ font-size:20px; font-weight:600 }
+    footer p{ font-size:14px }
+    footer hr{ background:var(--amarelo); height:2px; border:none; width:100px }
+
+    .atenCont, .endRedes{ display:flex; flex-direction:column; gap:26px }
+    .img-Contato{ display:flex; gap:8px }
+    .imgContato{ display:flex; flex-direction:column; gap:10px; padding-right:6px }
+    .imgContato img{ width:22px }
+    .InfContato{ display:flex; flex-direction:column; gap:10px }
+    .endRedes hr{ width:75px }
+    .imagensRedes{ display:flex; gap:10px }
+    .imagensRedes img{ width:30px }
+
+    .contDmApp{ display:flex; flex-direction:column; gap:24px }
+    .dom{ display:flex; align-items:center; gap:12px }
+    .dom h1{ font-size:16px; color:var(--amarelo-2) }
+    .dom h2{ font-size:16px; font-weight:700 }
+    .dom hr{ height:56px; width:2px; background:#fff; border:none }
+    .dom img{ width:220px }
+    .imgApp{ display:flex; gap:10px }
+    .imgApp img{ width:140px }
+    .appStore{ height:44px; margin-top:6px }
+
+    .direitosAutorais{ text-transform:uppercase; font-size:12px; opacity:.9 }
+    .direitosAutorais a{ text-decoration:underline }
+
+    /* =================== MODAL =================== */
+    .modal{ position:fixed; inset:0; background:rgba(0,0,0,.6); display:none; align-items:center; justify-content:center; padding:20px; z-index:20 }
+    .modal.open{ display:flex }
+    .modal-content{
+      background:#fff; color:#111; border-radius:14px; padding:20px; width:min(760px, 95vw);
+      box-shadow:0 10px 30px rgba(0,0,0,.35)
+    }
+    .modal-close{ display:flex; justify-content:flex-end; margin:-8px -8px 12px 0 }
+    .modal-close button{ background:#eee; border:none; border-radius:8px; padding:6px 10px; font-weight:800 }
+
+    /* =================== COOKIE BANNER =================== */
+    #cookie-banner{
+      position:fixed; left:50%; transform:translateX(-50%); bottom:20px; width:min(780px, 92vw);
+      background:var(--verde-2); color:#fff; padding:10px 14px; border-radius:18px; display:flex; align-items:center; gap:14px; z-index:50
+    }
+    #accept-cookies{
+      background:var(--amarelo-2); color:#000; border:none; padding:6px 16px; border-radius:999px; font-weight:800
+    }
+    #accept-cookies:hover{ background:#C78F00 }
+
+    /* =================== RESPONSIVO =================== */
+    @media (max-width:980px){
+      header.menu-global{ border-radius:0 }
+      .menu-links{ display:none; flex-direction:column; width:100%; gap:10px; padding:14px 0 }
+      .menu-toggle{ display:flex }
+      .menu .logo{ display:none }
+      .menu{ flex-direction:column; gap:10px }
+      .serv{ margin-top:-4vh }
+      .vetorAm{ display:none }
+      .contFooter{ grid-template-columns: 1fr }
+    }
+    .menu-links.open{ display:flex }
+  </style>
 </head>
-
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=formularioTrabalhe" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <div class="parceiros"></div>
-    <div class="parceirosButton">
-        <a href="sejaRepresentante.html"><button>seja um representante comercial!</button></a>
-    </div>
-    <header class="menu-global">
-        <nav class="menu">
-            <div class="menu-toggle">
-                <p class="menu-title">
-                    <span class="arrow">▼ </span>
-                    Menu
-                </p>
-                <div class="menubuttons">
-                    <span href="#inicio" class="logoMobile"><img src="Images/Logo Clara.png" alt=""></span>
-                    <span href="https://wa.me/554334723530?text=Ol%C3%A1%21%21+Estou+precisando+de+suporte%21"><button
-                            class="suporte">Suporte</button></span>
-                </div>
-            </div>
-            <ul class="menu-links">
-                <li><a href="#inicio" class="links">Inicio</a></li>
-                <li><a href="#servicos" class="links">Serviços</a></li>
-                <li><a href="#planos" class="links">Planos</a></li>
-                <li><a href="#contato" class="links">Contato</a></li>
-                <li><a href="#inicio" class="logo"><img src="Images/Logo Clara.png" alt=""></a></li>
-                <li><a href="#trabalheConosco" class="links">Trabalhe Conosco</a></li>
-                <li><a href="#" class="links">FAQ</a></li>
-                <a href="https://wa.me/554334723530?text=Ol%C3%A1%21%21+Estou+precisando+de+suporte%21" target="_blank"><button
-                        class="suporte">Suporte</button></a>
-            </ul>
-        </nav>
-    </header>
-    <section id="inicio">
-        <div class="slogan">
-            <h1>A <span class="tec"> tecnologia </span> que produz resultados!</h1>
-        </div>
-        <main class="cont-inicio">
-            <img src="Images/eb6093c8f2674a318b28aebdfd012ed9.png" alt="">
-            <div class="frase">
-                <p>Em um mundo onde os softwares eram muito complexos a Dominus Software tem o propósito de facilitar o
-                    sistema afim que voce empreendedor foque somente em suas vendas.</p>
-                <a href="https://api.whatsapp.com/send?phone=554334723530&text=Ol%C3%A1,%20vim%20do%20site,%20gostaria%20de%20saber%20mais%20sobre%20o%20seu%20sistema!"
-                    class="contate" target="_blank"><button>Contate-nos>></button></a>
-            </div>
-        </main>
-        <h1 class="saberMais">Deslize para saber mais</h1>
-        <div class="seta"><img src="Images/seta-para-baixo.png" alt=""></div>
-    </section>
-    <article class="serv">
-        <section class="PrePago">
-            <img class="icone" src="Images/fa6-solid_money-bill-trend-up.png" alt="">
-            <p>Função pré-pago, você só efetua o pagamento se for utilizar no mês seguinte</p>
-        </section>
-        <section class="Certif">
-            <img class="icone" src="Images/certificado.png" alt="">
-            <p>Emissão de certificado digital de maneira remota e eficaz.</p>
-        </section>
-        <section class="Suport">
-            <img class="icone" src="Images/24hrs.png" alt="">
-            <p>Equipe de suporte técnico disponivel para atendimento imediato.</p>
-        </section>
-    </article>
-    <section id="servicos">
-        <div class="nossosServ">
-            <h1 class="conhecaServ">Conheça os nossos</h1>
-            <h1 class="conServ">Serviços</h1>
-        </div>
-        <section class="descricaoServicos">
-            <div class="contServ">
-                <div class="box">
-                    <div class="box-item" id="lojaOnline" onclick="openModal('lojaOnline')">
-                        <img class="iconServ" src="/Images/Online Store.png" alt="">
-                        <p class="textoServ">PDV e grades para supermercados, distribuidoras e conveniencias</p>
-                    </div>
-                    <div class="box-item" id="pesagens" onclick="openModal('pesagens')">
-                        <img class="iconServ" src="/Images/Trailer Unloading.png" alt="">
-                        <p class="textoServ">Romaneio e pesagens</p>
-                    </div>
-                    <div class="box-item" id="delivery" onclick="openModal('delivery')">
-                        <img class="iconServ" src="/Images/Scooter.png" alt="">
-                        <p class="textoServ">Deliverys e cardapio online</p>
-                    </div>
-                    <div class="box-item" id="mecanica" onclick="openModal('mecanica')">
-                        <img class="iconServ" src="/Images/Car Service.png" alt="">
-                        <p class="textoServ">Ordem de serviço para mécanicas, oficinas e hidraulicas</p>
-                    </div>
-                    <div class="box-item" id="ordemServ" onclick="openModal('ordemServ')">
-                        <img class="iconServ" src="/Images/Worker Beard.png" alt="">
-                        <p class="textoServ">Ordem de serviço para prestadores de serviço, como T.I e assistências
-                            técnicas
-                        </p>
-                    </div>
-                    <div class="box-item" id="loja" onclick="openModal('loja')">
-                        <img class="iconServ" src="/Images/Clothes on Sale.png" alt="">
-                        <p class="textoServ">Condicionais e vendas para lojas de roupas e confecções</p>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=formularioTrabalhe" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End GTM -->
 
-                    </div>
-                    <div class="box-item" id="restaurant" onclick="openModal('restaurant')">
-                        <img class="iconServ" src="/Images/Restaurant Table.png" alt="">
-                        <p>Com o modulo de Comanda Eletronica, é possivel atender e agilizar os pedidos das comandas,
-                            permitindo a integraçãocom o aplicativos, onde o proprio garçom encaminha o pedido
-                            diretamente
-                            para o local onde será produzido.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </section>
-    <div class="vetorAm">
-        <img src="/Images/Vector.png" alt="">
-    </div>
-    <section id="planos">
-        <section class="tituloPl">
-            <h1 class="plOpac">Planos</h1>
-            <h1 class="pltit">Planos</h1>
-        </section>
-        <div class="contDiv">
-            <section class="divisoria"></section>
-        </div>
-        <section class="valorPlanos">
-            <a href="https://wa.me/554334723530?text=Ol%C3%A1%21%21+Gostaria+de+saber+mais+sobre+o+plano+bronze%21"><img
-                    class="bronze" src="/Images/bronze.png" alt=""></a>
-            <a href="https://wa.me/554334723530?text=Ol%C3%A1%21%21+Gostaria+de+saber+mais+sobre+o+plano+prata%21"><img
-                    class="prata" src="/Images/prata.png" alt=""></a>
-            <a href="https://wa.me/554334723530?text=Ol%C3%A1%21%21+Gostaria+de+saber+mais+sobre+o+plano+ouro%21"><img
-                    class="ouro" src="/Images/ouro.png" alt=""></a>
-        </section>
-        <section class="msgTeste" data-aos="fade-up">
-            <img src="/Images/Medium Risk.png" alt="">
-            <p>todos os planos possibilitam um periodo de avaliação gratuito</p>
-        </section>
-    </section>
-    <div class="contVetorAzul">
-        <img class="vetorAzul" src="/Images/VetorAzul.png" alt="">
-    </div>
-    <section id="contato">
-        <section class="conteudoCont">
-            <h1 class="titCont">Contate-nos</h1>
-            <div class="infoForm">
-                <section class="LocInf">
-                    <div class="maps">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3638.2536966739995!2d-51.686043625526544!3d-24.232904086605046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ec3e29e1f18af3%3A0x599482a739e18549!2sR.%20Ataides%20Antunes%20de%20Proen%C3%A7a%2C%20305%20-%20Ivaipor%C3%A3%2C%20PR%2C%2086870-000!5e0!3m2!1spt-BR!2sbr!4v1689602760924!5m2!1spt-BR!2sbr"></iframe>
-                    </div>
-                    <div class="inf">
-                        <div class="tel">
-                            <h2>Telefones:</h2>
-                            <p>Fixo | WhatsApp: <b> +55 43 3472-3530</b> <br> Vendas: <b> +55 43 9 9926-5753</b></p>
-                        </div>
-                        <div class="end">
-                            <h2>Endereço:</h2>
-                            <p><b> R. Ataides Antunes de Proença, 315 Casa Grande III - Ivaiporã</b></p>
-                        </div>
-                        <div class="email">
-                            <h2>Email:</h2>
-                            <p>sistemadominus@gmail.com</p>
-                        </div>
-                    </div>
-                </section>
-                <div class="formEmail">
-                    <img src="/Images/email.png" alt="">
-                    <div class="formulario">
-                        <h1>Mande-nos um E-mail</h1>
-                        <form action="https://formsubmit.co/sistemadominus@gmail.com" method="POST" data-form id="formEmail">
-                            <div class="contForm">
-                                <input type="text" name="nome" placeholder="Nome" id="nome">
-                                <input type="email" name="email" placeholder="E-mail" id="email">
-                                <textarea name="message" id="mensagem" cols="30" rows="10" placeholder="Mensagem"
-                                    class="message"></textarea>
-                                <div class="containerButton">
-                                    <div class="amareloButton"><button type="submit"
-                                            onclick="sendMailContact(event)"><img src="/Images/Enviar.png"
-                                                alt=""></button></div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </section>
-    <section id="trabalheConosco">
-        <div class="titleTrabalhe">
-            <div class="tittleAzul">
-                <div class="tittleSub">
-                    <h1>Trabalhe Conosco</h1>
-                    <h2>Venha fazer parte da Dominus!</h2>
-                </div>
-            </div>
-        </div>
-        <section class="formTrabalhe">
-            <div class="contTittleTrab">
-                <h1>Envie o seu curriculo! </h1>
-                <p>Por favor, preencha os campos abaixo e anexe seu currículo em PDF com no máximo 5MB.</p>
-                <hr>
-            </div>
-            <form action="https://formsubmit.co/ajax/sistemadominus@gmail.com" method="post" data-form
-                id="formularioTrabalhe">
-                <div class="formularioTrabalhe">
-                    <div>
-                        <label for="">Nome</label>
-                        <input type="text" placeholder="Digite o seu nome" id="Nome" name="nome" required>
-                    </div>
-                    <div>
-                        <label for="">E-mail</label>
-                        <input type="text" placeholder="Digite o seu e-mail" id="email-job" name="Email" required>
-                    </div>
-                    <div class="telCargo">
-                        <label for="">Telefone</label>
-                        <input type="text" id="telefone" maxlength="15" placeholder="(__)_ ____ - ____" name="telefone">
-                        <label for="">Cargo Desejado</label>
-                        <select name="" id="cargo" name="cargo">
-                            <option value="">Selecione o cargo desejado</option>
-                            <option value="Representante Comercial">Representante Comercial</option>
-                            <option value="Analista de sistema">Analista de sistema</option>
-                            <option value="Estagiário(a)">Estagiário(a)</option>
-                            <option value="Secretário(a)">Secretário(a)</option>
-                            <option value="Suporte Técnico">Suporte Técnico</option>
-                            <option value="Desenvolvedor">Desenvolvedor de T.I</option>
-                        </select>
-                    </div>
-                    <div class="git">
-                        <label for="">GitHub</label>
-                        <input type="text" id="git" placeholder="Cole o link do seu GitHub aqui" name="GitHub">
-                    </div>
-                    <div class="linkedln">
-                        <label for="">Linkedln</label>
-                        <input type="text" id="linkedin" placeholder="Cole o link do seu LinkedIn aqui" name="linkedln">
-                    </div>
-                    <div class="textareaTrabalhe">
-                        <label for="">Mensagem</label>
-                        <textarea id="mensagem" class="textTrabalhe" name="mensagem"></textarea>
-                    </div>
+  <div class="parceiros"></div>
+  <div class="parceirosButton">
+    <a href="sejaRepresentante.html"><button>Seja um representante comercial!</button></a>
+  </div>
 
-                </div>
-                <div class="footerform">
-                    <div class="botaoAnexo">
-                        <!-- <label for="pdf"><img src="/Images/Attach.png" alt="">
-                            <p>Anexar arquivo em PDF</p> -->
-                        </label>
-                        <input class="pdf" id="pdf" type="file" accept=".doc, .docx, .pdf">
-                        </input>
-                        <div class="enviarCurriculo">
-                            <button data-button onclick="sendMailTrabalhe(event)">
-                                <img src="/Images/Send.png" alt="">
-                                <h1>Enviar Curriculo</h1>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+  <!-- ===== Header / Menu ===== -->
+  <header class="menu-global">
+    <nav class="menu" aria-label="Menu principal">
+      <!-- Mobile toggle -->
+      <div class="menu-toggle" aria-hidden="false">
+        <p class="menu-title"><span class="arrow">☰</span> Menu</p>
+        <div class="menubuttons">
+          <span class="logoMobile"><img src="Images/Logo Clara.png" alt="Dominus Software"></span>
+          <a href="https://wa.me/554334723530?text=Ol%C3%A1%21%21+Estou+precisando+de+suporte%21" target="_blank" rel="noopener">
+            <button class="suporte">Suporte</button>
+          </a>
+        </div>
+      </div>
 
+      <ul class="menu-links" id="menuLinks">
+        <li><a href="#inicio" class="links">Início</a></li>
+        <li><a href="#servicos" class="links">Serviços</a></li>
+        <li><a href="#planos" class="links">Planos</a></li>
+        <li><a href="#contato" class="links">Contato</a></li>
+        <li><a href="#inicio" class="logo" aria-label="Início"><img src="Images/Logo Clara.png" alt="Dominus Software"></a></li>
+        <!-- Removido: Trabalhe Conosco -->
+        <li><a href="faq.html" class="links">FAQ</a></li>
+        <a href="https://wa.me/554334723530?text=Ol%C3%A1%21%21+Estou+precisando+de+suporte%21" target="_blank" rel="noopener">
+          <button class="suporte">Suporte</button>
+        </a>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section id="inicio" aria-label="Abertura do site">
+    <div class="slogan">
+      <h1>A <span class="tec">tecnologia</span> que produz resultados!</h1>
+    </div>
+
+    <main class="cont-inicio">
+      <img src="Images/eb6093c8f2674a318b28aebdfd012ed9.png" alt="Solução Dominus em uso">
+      <div class="frase">
+        <p>
+          Em um mundo onde os softwares são muito complexos, a Dominus Software tem o propósito de
+          <strong>simplificar</strong> o seu sistema, a fim de que você, empreendedor, foque apenas nas vendas.
+        </p>
+        <a class="contate" target="_blank" rel="noopener"
+           href="https://api.whatsapp.com/send?phone=554334723530&text=Ol%C3%A1,%20vim%20do%20site,%20gostaria%20de%20saber%20mais%20sobre%20o%20seu%20sistema!">
+          <button>Contate-nos &raquo;</button>
+        </a>
+      </div>
+    </main>
+
+    <h2 class="saberMais">Deslize para saber mais</h2>
+    <div class="seta"><img src="Images/seta-para-baixo.png" alt=""></div>
+  </section>
+
+  <!-- Destaques -->
+  <article class="serv" aria-label="Destaques">
+    <section class="PrePago">
+      <img class="icone" src="Images/fa6-solid_money-bill-trend-up.png" alt="">
+      <p>Função pré-pago: você só paga se utilizar no mês seguinte.</p>
+    </section>
+    <section class="Certif">
+      <img class="icone" src="Images/certificado.png" alt="">
+      <p>Emissão de certificado digital de maneira remota e eficaz.</p>
+    </section>
+    <section class="Suport">
+      <img class="icone" src="Images/24hrs.png" alt="">
+      <p>Equipe de suporte técnico disponível para atendimento imediato.</p>
+    </section>
+  </article>
+
+  <!-- ===== Serviços ===== -->
+  <section id="servicos" aria-label="Serviços">
+    <div class="nossosServ">
+      <h3 class="conhecaServ">Conheça os nossos</h3>
+      <h1 class="conServ">Serviços</h1>
+    </div>
+
+    <section class="descricaoServicos">
+      <div class="contServ">
+        <div class="box" role="list">
+          <div class="box-item" id="lojaOnline" role="listitem" onclick="openModal('PDV e grades para supermercados, distribuidoras e conveniências.')">
+            <img class="iconServ" src="/Images/Online Store.png" alt="">
+            <p class="textoServ">PDV e grades para supermercados, distribuidoras e conveniências.</p>
+          </div>
+
+          <div class="box-item" id="pesagens" role="listitem" onclick="openModal('Romaneio e pesagens.')">
+            <img class="iconServ" src="/Images/Trailer Unloading.png" alt="">
+            <p class="textoServ">Romaneio e pesagens.</p>
+          </div>
+
+          <div class="box-item" id="delivery" role="listitem" onclick="openModal('Delivery e cardápio online, com integração.')">
+            <img class="iconServ" src="/Images/Scooter.png" alt="">
+            <p class="textoServ">Delivery e cardápio online.</p>
+          </div>
+
+          <div class="box-item" id="mecanica" role="listitem" onclick="openModal('Ordem de serviço para mecânicas, oficinas e hidráulicas.')">
+            <img class="iconServ" src="/Images/Car Service.png" alt="">
+            <p class="textoServ">Ordem de serviço para mecânicas, oficinas e hidráulicas.</p>
+          </div>
+
+          <div class="box-item" id="ordemServ" role="listitem" onclick="openModal('Ordem de serviço para prestadores de serviço (TI, assistências técnicas etc.).')">
+            <img class="iconServ" src="/Images/Worker Beard.png" alt="">
+            <p class="textoServ">OS para prestadores (TI e assistências técnicas).</p>
+          </div>
+
+          <div class="box-item" id="loja" role="listitem" onclick="openModal('Condicionais e vendas para lojas de roupas e confecções.')">
+            <img class="iconServ" src="/Images/Clothes on Sale.png" alt="">
+            <p class="textoServ">Condicionais e vendas para moda e confecções.</p>
+          </div>
+
+          <div class="box-item" id="restaurant" role="listitem" onclick="openModal('Comanda Eletrônica: agilidade no atendimento, integração com aplicativos e envio direto à produção.')">
+            <img class="iconServ" src="/Images/Restaurant Table.png" alt="">
+            <p>Com o módulo de <strong>Comanda Eletrônica</strong>, é possível agilizar os pedidos e integrar com aplicativos,
+              permitindo que o próprio garçom encaminhe o pedido diretamente ao local de produção.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <div class="vetorAm" aria-hidden="true">
+    <img src="/Images/Vector.png" alt="">
+  </div>
+
+  <!-- ===== Planos ===== -->
+  <section id="planos" aria-label="Planos">
+    <section class="tituloPl">
+      <h1 class="plOpac">Planos</h1>
+      <h2 class="pltit">Planos</h2>
+    </section>
+
+    <div class="contDiv">
+      <section class="divisoria"></section>
+    </div>
+
+    <section class="valorPlanos">
+      <a href="https://wa.me/554334723530?text=Ol%C3%A1%21%21+Gostaria+de+saber+mais+sobre+o+plano+Bronze%21" target="_blank" rel="noopener">
+        <img class="bronze" src="/Images/bronze.png" alt="Plano Bronze">
+      </a>
+      <a href="https://wa.me/554334723530?text=Ol%C3%A1%21%21+Gostaria+de+saber+mais+sobre+o+plano+Prata%21" target="_blank" rel="noopener">
+        <img class="prata" src="/Images/prata.png" alt="Plano Prata">
+      </a>
+      <a href="https://wa.me/554334723530?text=Ol%C3%A1%21%21+Gostaria+de+saber+mais+sobre+o+plano+Ouro%21" target="_blank" rel="noopener">
+        <img class="ouro" src="/Images/ouro.png" alt="Plano Ouro">
+      </a>
+    </section>
+
+    <section class="msgTeste">
+      <img src="/Images/Medium Risk.png" alt="">
+      <p>Todos os planos contam com <strong>período de avaliação gratuito</strong>.</p>
+    </section>
+  </section>
+
+  <!-- ===== Contato ===== -->
+  <div class="contVetorAzul" aria-hidden="true">
+    <img class="vetorAzul" src="/Images/VetorAzul.png" alt="">
+  </div>
+
+  <section id="contato" aria-label="Contato">
+    <section class="conteudoCont">
+      <h1 class="titCont">Contate-nos</h1>
+
+      <div class="infoForm">
+        <section class="LocInf">
+          <div class="maps" aria-label="Mapa">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3638.2536966739995!2d-51.686043625526544!3d-24.232904086605046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ec3e29e1f18af3%3A0x599482a739e18549!2sR.%20Ataides%20Antunes%20de%20Proen%C3%A7a%2C%20305%20-%20Ivaipor%C3%A3%2C%20PR%2C%2086870-000!5e0!3m2!1spt-BR!2sbr!4v1689602760924!5m2!1spt-BR!2sbr"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+
+          <div class="inf">
+            <div class="tel">
+              <h2>Telefones</h2>
+              <p>Fixo | WhatsApp: <b>+55 43 3472-3530</b><br>Vendas: <b>+55 43 9 9926-5753</b></p>
+            </div>
+            <div class="end">
+              <h2>Endereço</h2>
+              <p><b>R. Ataídes Antunes de Proença, 315 — Casa Grande III — Ivaiporã/PR</b></p>
+            </div>
+            <div class="email">
+              <h2>E-mail</h2>
+              <p>sistemadominus@gmail.com</p>
+            </div>
+          </div>
+        </section>
+
+        <div class="formEmail">
+          <img src="/Images/email.png" alt="" aria-hidden="true">
+          <div class="formulario">
+            <h1>Mande-nos um e-mail</h1>
+
+            <form action="https://formsubmit.co/sistemadominus@gmail.com" method="POST" id="formEmail" data-form>
+              <div class="contForm">
+                <input type="text" name="nome" placeholder="Nome" id="nome" required>
+                <input type="email" name="email" placeholder="E-mail" id="email" required>
+                <textarea name="message" id="mensagem" placeholder="Mensagem" class="message" required></textarea>
+                <div class="containerButton">
+                  <div class="amareloButton">
+                    <button type="submit" title="Enviar">
+                      <img src="/Images/Enviar.png" alt="Enviar">
+                    </button>
+                  </div>
+                </div>
+              </div>
             </form>
 
-        </section>
-        <footer>
-            <div class="contFooter">
-                <div class="atenCont">
-                    <div class="atendimento">
-                        <h1>Atendimento</h1>
-                        <hr>
-                        <p>Segunda à sexta - 8h às 18h</p>
-                        <p>Sábados - 8h às 12h</p>
-                        <p>Domingos e feriados - Fechado</p>
-                    </div>
-                    <div class="contato">
-                        <h1>Contato</h1>
-                        <hr>
-                        <div class="img-Contato">
-                            <div class="imgContato">
-                                <img src="/Images/Circled Envelope.png" alt="">
-                                <img src="/Images/WhatsApp.png" alt="">
-                                <img src="/Images/WhatsApp.png" alt="">
-                            </div>
-                            <div class="InfContato">
-                                <p>sistemadominus@gmail.com</p>
-                                <p>+55 43 3472-3530</p>
-                                <p>+55 43 9 9926-5753</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="endRedes">
-                    <div class="endereco">
-                        <h1>Endereço</h1>
-                        <hr>
-                        <p>R. Ataides Antunes de Proença, 315 Casa Grande III - Ivaiporã / PR</p>
-                    </div>
-                    <div class="siga">
-                        <h1>Siga-nos</h1>
-                        <hr>
-                        <div class="imagensRedes">
-                           <a href="https://www.facebook.com/DominusSoftware"><img src="/Images/Facebook.png" alt=""></a> 
-                           <a href="https://www.instagram.com/sistemasdominus/"> <img src="/Images/Instagram Circle.png" alt=""></a>
-                           <a href="https://www.youtube.com/@dominussoftware6970"> <img src="/Images/YouTube Logo.png" alt=""></a>
-                           <a href="https://www.linkedin.com/company/dominus-software-automa%C3%A7%C3%A3o/?viewAsMember=true"> <img src="/Images/LinkedIn Circled.png" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="contDmApp">
-                    <div class="dom">
-                        <div class="cnpj">
-                            <h1>M. Dominus Software LTDA</h1>
-                            <h2>42.179.987/0001-49</h2>
-                        </div>
-                        <hr>
-                        <div class="logoFooter">
-                            <img src="/Images/Logotipo Clara 1.png" alt="">
-                        </div>
-                    </div>
-                    <div class="Nossosapps">
-                        <h1>Nossos Aplicativos!</h1>
-                        <hr>
-                        <div class="imgApp">
-                            <img src="/Images/google 1.png" alt="" class="playStore">
-                            <img src="/Images/apple 1.png" alt="" class="appStore">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <p class="direitosAutorais">
-                M. Dominus Software LTDA © 2023 criado por <a href="index.html">Dominus Softwares</a></p>
-        </footer>
-        <div id="myModal" class="modal" onclick="closeModal()">
-            <div class="modal-content">
-                <div id="modalContent"></div>
-            </div>
+          </div>
         </div>
-        <div id="cookie-banner">
-            <p>Este site usa cookies para melhorar sua experiência. Aceite para continuar navegando.</p>
-            <button id="accept-cookies">Aceitar</button>
-        </div>
-        <script src="assets/script.js"></script>
-        <!-- <script src="assets/api.js"></script> -->
-        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-        <script>
-            AOS.init();
-        </script>
+      </div>
+    </section>
+  </section>
 
+  <!-- ===== Footer ===== -->
+  <footer aria-label="Rodapé">
+    <div class="contFooter">
+      <div class="atenCont">
+        <div class="atendimento">
+          <h1>Atendimento</h1>
+          <hr>
+          <p>Segunda a sexta — 8h às 18h</p>
+          <p>Sábados — 8h às 12h</p>
+          <p>Domingos e feriados — Fechado</p>
+        </div>
+
+        <div class="contato">
+          <h1>Contato</h1>
+          <hr>
+          <div class="img-Contato">
+            <div class="imgContato">
+              <img src="/Images/Circled Envelope.png" alt="">
+              <img src="/Images/WhatsApp.png" alt="">
+              <img src="/Images/WhatsApp.png" alt="">
+            </div>
+            <div class="InfContato">
+              <p>sistemadominus@gmail.com</p>
+              <p>+55 43 3472-3530</p>
+              <p>+55 43 9 9926-5753</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="endRedes">
+        <div class="endereco">
+          <h1>Endereço</h1>
+          <hr>
+          <p>R. Ataídes Antunes de Proença, 315 — Casa Grande III — Ivaiporã/PR</p>
+        </div>
+        <div class="siga">
+          <h1>Siga-nos</h1>
+          <hr>
+          <div class="imagensRedes">
+            <a href="https://www.facebook.com/DominusSoftware" target="_blank" rel="noopener"><img src="/Images/Facebook.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/sistemasdominus/" target="_blank" rel="noopener"><img src="/Images/Instagram Circle.png" alt="Instagram"></a>
+            <a href="https://www.youtube.com/@dominussoftware6970" target="_blank" rel="noopener"><img src="/Images/YouTube Logo.png" alt="YouTube"></a>
+            <a href="https://www.linkedin.com/company/dominus-software-automa%C3%A7%C3%A3o/?viewAsMember=true" target="_blank" rel="noopener"><img src="/Images/LinkedIn Circled.png" alt="LinkedIn"></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contDmApp">
+        <div class="dom">
+          <div class="cnpj">
+            <h1>M. Dominus Software LTDA</h1>
+            <h2>42.179.987/0001-49</h2>
+          </div>
+          <hr>
+          <div class="logoFooter">
+            <img src="/Images/Logotipo Clara 1.png" alt="Dominus Software">
+          </div>
+        </div>
+        <div class="Nossosapps">
+          <h1>Nossos aplicativos</h1>
+          <hr>
+          <div class="imgApp">
+            <img src="/Images/google 1.png" alt="Google Play" class="playStore">
+            <img src="/Images/apple 1.png" alt="App Store" class="appStore">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="direitosAutorais">
+      M. Dominus Software LTDA © 2023 — criado por <a href="index.html">Dominus Software</a>
+    </p>
+  </footer>
+
+  <!-- ===== Modal ===== -->
+  <div id="myModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <div class="modal-close"><button onclick="closeModal()" aria-label="Fechar">Fechar ✕</button></div>
+      <h3 id="modalTitle" style="margin-bottom:8px;">Serviço</h3>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- ===== Cookie Banner ===== -->
+  <div id="cookie-banner" role="region" aria-live="polite">
+    <p>Este site utiliza cookies para melhorar sua experiência. Aceite para continuar navegando.</p>
+    <button id="accept-cookies" type="button">Aceitar</button>
+  </div>
+
+  <!-- =================== JS =================== -->
+  <script>
+    // Toggle menu (mobile)
+    (function(){
+      const toggle = document.querySelector('.menu-toggle');
+      const links = document.getElementById('menuLinks');
+      if(toggle){
+        toggle.addEventListener('click', (e) => {
+          if(e.target.closest('.suporte')) return; // não fecha ao clicar no botão suporte
+          links.classList.toggle('open');
+        });
+      }
+    })();
+
+    // Modal simples
+    function openModal(texto){
+      const modal = document.getElementById('myModal');
+      const content = document.getElementById('modalContent');
+      content.innerHTML = '<p style="line-height:1.6;">'+ (texto || '') +'</p>';
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
+    }
+    function closeModal(){
+      const modal = document.getElementById('myModal');
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden','true');
+    }
+    document.getElementById('myModal')?.addEventListener('click', closeModal);
+
+    // Cookie banner
+    (function(){
+      const banner = document.getElementById('cookie-banner');
+      const btn = document.getElementById('accept-cookies');
+      const key = 'dominus.cookies.accepted';
+      if(localStorage.getItem(key)==='1'){ banner.style.display='none' }
+      btn.addEventListener('click', ()=>{ localStorage.setItem(key,'1'); banner.style.display='none' });
+    })();
+  </script>
 </body>
-
 </html>

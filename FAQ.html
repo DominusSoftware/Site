@@ -1,95 +1,573 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ</title>
-    <link rel="stylesheet" href="/assets/style.css">
-    <link rel="icon" href="/Images/Design_sem_nome-removebg-preview (1).png" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAQ — Dominus</title>
+  <link rel="icon" href="/Images/Design_sem_nome-removebg-preview (1).png" type="image/x-icon">
+
+  <style>
+    :root{
+      --bg: #0b0e14;
+      --card: #121826;
+      --card-2: #0e1422;
+      --text: #e7e7ea;
+      --muted:#9aa4b2;
+      --brand:#ffd54a;         /* tira amarela */
+      --accent:#7c5cff;        /* detalhe roxo */
+      --line:#1e2741;
+      --ok:#16a34a;
+      --danger:#ef4444;
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:
+        radial-gradient(1200px 600px at 100% -10%, rgba(124,92,255,.12), transparent 60%),
+        radial-gradient(900px 500px at -10% 10%, rgba(255,213,74,.10), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial;
+      letter-spacing:.2px;
+    }
+
+    a,button{cursor:pointer}
+    img{max-width:100%;display:block}
+
+    /* ====== Layout ====== */
+    .wrap{
+      max-width:1100px;
+      margin-inline:auto;
+      padding:24px;
+    }
+
+    .topbar{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:24px;
+    }
+
+    .back-btn{
+      display:inline-flex;align-items:center;gap:10px;
+      background:linear-gradient( to bottom, #1a2033, #101629);
+      border:1px solid var(--line);
+      color:var(--text);
+      padding:10px 14px;border-radius:999px;
+      box-shadow: var(--shadow);
+      transition:transform .15s ease, background .2s ease, border-color .2s ease;
+      text-decoration:none;
+      font-weight:600;
+    }
+    .back-btn:hover{ transform: translateY(-1px); border-color:#2a355c }
+    .back-btn img{ width:18px;height:18px; filter:contrast(0) brightness(2)}
+
+    .title{
+      display:flex;align-items:center;gap:14px;
+    }
+    .title .bar{
+      width:6px;height:36px;border-radius:6px;background:linear-gradient(180deg,var(--brand),#f6bd00);
+      box-shadow:0 0 0 4px rgba(255,213,74,.12);
+    }
+    .title h1{ margin:0;font-size: clamp(24px, 4vw, 36px); letter-spacing:.5px}
+    .subtitle{ margin:6px 0 0; color:var(--muted); font-size:14px}
+
+    .grid{
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap:18px;
+      margin-top:22px;
+    }
+
+    /* ====== Sidebar / Tabs ====== */
+    .sidebar{
+      position:sticky; top:16px;
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.02), transparent), var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:14px;
+      height:max-content;
+    }
+    .sidebar h2{
+      margin:4px 8px 10px; font-size:14px; color:var(--muted); font-weight:700; text-transform:uppercase; letter-spacing:.12em;
+    }
+    .cat-list{ display:flex; flex-direction:column; gap:8px; list-style:none; padding:0; margin:0;}
+    .cat-btn{
+      width:100%;
+      display:flex; align-items:center; gap:10px;
+      padding:12px 14px;
+      border-radius:12px;
+      border:1px solid transparent;
+      background: linear-gradient(180deg, #151b2a, #101624);
+      color:var(--text);
+      text-align:left;
+      transition: border-color .2s ease, background .2s, transform .15s;
+      font-weight:600;
+    }
+    .cat-btn svg{ width:18px;height:18px; opacity:.9}
+    .cat-btn:hover{ transform: translateY(-1px); border-color:#273054 }
+    .cat-btn[aria-selected="true"]{
+      background: linear-gradient(180deg, #1a2140, #111833);
+      border-color:#33406e;
+      box-shadow: inset 0 0 0 1px rgba(124,92,255,.25), 0 10px 20px rgba(124,92,255,.12);
+    }
+
+    /* ====== Content ====== */
+    .panel{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.02), transparent 50%),
+        var(--card-2);
+      box-shadow: var(--shadow);
+      padding: 12px;
+    }
+
+    .group-title{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 14px; margin:4px;
+      border-radius:12px;
+      background: linear-gradient(180deg, #12192e, #0e1424);
+      border:1px solid #1f2a4a;
+    }
+    .group-title h3{ margin:0; font-size:16px; letter-spacing:.2px }
+    .group-title small{ color:var(--muted) }
+
+    /* ====== Accordion ====== */
+    .faq{
+      display:flex; flex-direction:column; gap:10px;
+      margin:10px 4px 4px;
+    }
+
+    details{
+      border:1px solid #1c2744;
+      border-radius:12px;
+      background: linear-gradient(180deg, #0f1526, #0b1120);
+      overflow:hidden;
+      transition:border-color .2s ease, background .2s ease;
+    }
+    details[open]{ border-color:#2b3a6a; background: linear-gradient(180deg, #151d38, #0c1326); }
+
+    summary{
+      display:flex; align-items:center; gap:12px;
+      list-style:none;
+      padding:14px 16px;
+      cursor:pointer;
+      outline:none;
+      user-select:none;
+      font-weight:650;
+    }
+    summary::-webkit-details-marker{ display:none }
+    .chev{
+      width:18px;height:18px; flex:0 0 18px;
+      transition: transform .2s ease;
+      opacity:.8
+    }
+    details[open] .chev{ transform: rotate(90deg)}
+
+    .q{
+      flex:1;
+    }
+    .badge{
+      font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.14em;
+      padding:4px 8px; border-radius:999px;
+      border:1px solid #2a3560;
+      color:#c5c9f1; background: rgba(124,92,255,.12);
+      margin-left:auto;
+    }
+
+    .answer{
+      padding:0 16px 16px;
+      color:#d6d8e7;
+      border-top:1px dashed #223058;
+      background:
+        linear-gradient(0deg, rgba(124,92,255,.06), transparent 40%);
+      font-size:15px;
+    }
+
+    .answer p{ margin:12px 0 }
+    .answer ul{ margin:10px 0 0 18px }
+    .answer li{ margin:6px 0; color:#cfd3e8 }
+
+    /* ====== Search ====== */
+    .search{
+      position:relative; margin:0 4px 12px;
+    }
+    .search input{
+      width:100%;
+      background: linear-gradient(180deg, #131a2f, #0f1628);
+      border:1px solid #1b2644;
+      color:var(--text);
+      padding:12px 40px 12px 42px;
+      border-radius:12px;
+      outline:none;
+      transition:border-color .2s;
+      font-size:15px;
+    }
+    .search input:focus{ border-color:#2b3a6a }
+    .search svg{
+      position:absolute; left:14px; top:50%; transform:translateY(-50%);
+      width:18px; height:18px; opacity:.8;
+    }
+    .search .clear{
+      position:absolute; right:10px; top:50%; transform:translateY(-50%);
+      background:transparent;border:0;color:var(--muted);font-size:14px
+    }
+
+    /* ====== Empty ====== */
+    .empty{
+      display:none; text-align:center; padding:40px 12px; color:var(--muted);
+    }
+
+    /* ====== Responsive ====== */
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: 1fr; }
+      .sidebar{ position:relative; top:auto; }
+      .cat-list{ display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:10px }
+      .cat-btn{ justify-content:center }
+      .group-title{ display:none }
+    }
+  </style>
 </head>
 <body>
-    <section id="FAQ">
-        <div class="voltarFaq">
-            <a href="index.html"><button><img src="/Images/seta voltar.png" alt="">Voltar</button></a>
-        </div>
-        <div class="ContTituloFaq">
-            <div class="TiraAmarela"></div>
-            <h1 class="TituloFaq">FAQ</h1>
-        </div>
-        <div class="perg">
-            <h1>Perguntas Frequentes</h1>
-        </div>
-        <div class="perguntas">
-            <div class="contPerg">
-                <div class="tipoPerg">
-                    <h1>Basicas</h1>
-                    <hr>
-                    <h1>Periodo de avaliação</h1>
-                    <hr>
-                    <h1>Forma de cobrança</h1>
-                    <hr>
-                    <h1>Emissão de Nota</h1>
-                    <hr>
-                    <h1>PDV</h1>
-                    <hr>
-                    <h1>Treinamento e Suporte</h1>
-                    <hr>
-                    <h1>Integração de emissão de boletos</h1>
-                    <hr>
-                    <h1>Cancelamento</h1>
-                    <hr>
-                    <h1>Parceria & Representação</h1>
-                </div>
-                <div class="PerguntasTipo">
-                    <div class="PergClicaveis">
-                        <p>Quais requisitos para utilizar o sistema?</p>
-                        <p class="resposta" de>Os requisitos minimos para você utilizar o sistema varia de modulo  para modulo, os mais básicos (Plano Bronze) consiste em um computador com memoria RAM de 4gb e processador Dual Core 2.0 GHZ Pentium ou similar. Contate-nos para mais informações </p>
-                    </div>
-                    <div class="PergClicaveis">
-                        <p>Preciso estar conectado a internet para utilizar o sistema?</p>
-                        <p class="resposta"></p>
-                    </div>
-                    <div class="PergClicaveis">
-                        <p>Consigo acessar o sistema mesmo estando fora do estabelecimento?</p>
-                        <p class="resposta"></p>
-                    </div>
-                    <div class="PergClicaveis">
-                        <p>Ja utilizo um sistema, os dados que tenho nele, vou perder tudo?</p>
-                        <p class="resposta"></p>
-                    </div>
-                    <div class="PergClicaveis">
-                        <p>Posso ver ou testar o sistema de maneira gratuita?</p>
-                        <p class="resposta"></p>
-                    </div>
-                </div>
+  <main class="wrap" id="FAQ">
+    <header class="topbar">
+      <a class="back-btn" href="index.html" aria-label="Voltar para a página inicial">
+        <img src="/Images/seta voltar.png" alt="" aria-hidden="true">
+        Voltar
+      </a>
+    </header>
 
-
-
-
-
-                <!-- <table>
-                    <tbody>
-                            <tr>Basicas</tr>
-                            <tr>Periodo de avaliação</tr>
-                            <tr>Forma de cobrança</tr>
-                            <tr>Emissão de Nota</tr>
-                            <tr>PDV</tr>
-                            <tr>Treinamento e Suporte</tr>
-                            <tr>Integração de emissão de boletos</tr>
-                            <tr>Cancelamento</tr>
-                            <tr>Parceria & Representação</tr>
-                    </tbody>
-                </table>
-                <table>
-                    <td>Quais requisitos para utilizar o sistema?</td>
-                    <p>Os requisitos minimos para você utilizar o sistema varia de modulo  para modulo, os mais básicos (Plano Bronze) consiste em um computador com memoria RAM de 4gb e processador Dual Core 2.0 GHZ Pentium ou similar. Contate-nos para mais informações </p>
-                    <td>Preciso estar conectado a internet para utilizar o sistema?</td>
-                    <td>Consigo acessar o sistema mesmo estando fora do estabelecimento?</td>
-                    <td>Ja utilizo um sistema, os dados que tenho nele, vou perder tudo?</td>
-                    <td>Posso ver ou testar o sistema de maneira gratuita?</td>
-                </table> -->
-            </div>
-        </div>
+    <section class="title">
+      <div class="bar" aria-hidden="true"></div>
+      <div>
+        <h1>FAQ</h1>
+        <p class="subtitle">Perguntas frequentes sobre requisitos, avaliação, cobrança, emissão de nota, PDV, suporte e mais.</p>
+      </div>
     </section>
+
+    <section class="grid" aria-labelledby="faq-heading">
+      <!-- Sidebar / Tabs -->
+      <aside class="sidebar" role="tablist" aria-label="Categorias do FAQ">
+        <h2>Categorias</h2>
+        <ul class="cat-list">
+          <li><button class="cat-btn" role="tab" aria-selected="true" data-cat="basicas">
+            <!-- icon -->
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l9 4.5v9L12 21 3 16.5v-9L12 3z" stroke="currentColor" stroke-width="1.5"/></svg>
+            Básicas
+          </button></li>
+          <li><button class="cat-btn" role="tab" aria-selected="false" data-cat="avaliacao">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10M7 12h10M7 17h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Período de avaliação
+          </button></li>
+          <li><button class="cat-btn" role="tab" aria-selected="false" data-cat="cobranca">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16v10H4zM8 7V5m8 2V5M7 13h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Forma de cobrança
+          </button></li>
+          <li><button class="cat-btn" role="tab" aria-selected="false" data-cat="nota">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M6 3h9l3 3v15H6z" stroke="currentColor" stroke-width="1.5"/><path d="M9 12h6M9 9h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Emissão de Nota
+          </button></li>
+          <li><button class="cat-btn" role="tab" aria-selected="false" data-cat="pdv">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 7h14v10H5zM8 7V5h8v2" stroke="currentColor" stroke-width="1.5"/><path d="M9 12h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            PDV
+          </button></li>
+          <li><button class="cat-btn" role="tab" aria-selected="false" data-cat="suporte">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M9 10a3 3 0 116 0c0 2-3 2-3 4m0 3h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Treinamento & Suporte
+          </button></li>
+          <li><button class="cat-btn" role="tab" aria-selected="false" data-cat="boletos">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 5h14v14H5z" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v14m4-14v14m4-14v14" stroke="currentColor" stroke-width="1.5"/></svg>
+            Integração de Boletos
+          </button></li>
+          <li><button class="cat-btn" role="tab" aria-selected="false" data-cat="cancelamento">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M7 7l10 10M17 7L7 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Cancelamento
+          </button></li>
+          <li><button class="cat-btn" role="tab" aria-selected="false" data-cat="parceria">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M7 12a5 5 0 0110 0v6H7v-6z" stroke="currentColor" stroke-width="1.5"/><path d="M9 18v1a3 3 0 003 3 3 3 0 003-3v-1" stroke="currentColor" stroke-width="1.5"/></svg>
+            Parceria & Representação
+          </button></li>
+        </ul>
+      </aside>
+
+      <!-- Content -->
+      <section class="panel" id="faq-content">
+        <div class="group-title">
+          <h3 id="faq-heading">Perguntas Frequentes</h3>
+          <small id="current-cat-label">Básicas</small>
+        </div>
+
+        <div class="search" role="search">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 19a8 8 0 100-16 8 8 0 000 16z" stroke="currentColor" stroke-width="1.5"/><path d="M21 21l-3.5-3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <input id="searchInput" type="search" placeholder="Busque por palavras-chave (ex.: PDV, nota, boletos…)" autocomplete="off" aria-label="Buscar perguntas">
+          <button class="clear" type="button" id="clearSearch" aria-label="Limpar busca">✕</button>
+        </div>
+
+        <!-- ====== Groups ====== -->
+
+        <!-- Básicas -->
+        <div class="faq" data-group="basicas">
+          <details>
+            <summary>
+              <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <span class="q">Quais requisitos para utilizar o sistema?</span>
+              <span class="badge">Requisitos</span>
+            </summary>
+            <div class="answer">
+              <p>Os requisitos mínimos variam por módulo. Para o plano Bronze, recomendamos:</p>
+              <ul>
+                <li>Computador com <strong>4 GB de RAM</strong> (ou mais)</li>
+                <li>Processador <strong>Dual Core 2.0 GHz</strong> (Pentium ou similar)</li>
+                <li>Sistema operacional atualizado e <strong>navegador moderno</strong></li>
+              </ul>
+              <p>Para módulos avançados (PDV, fiscal, etc.), podemos orientar o dimensionamento ideal conforme o seu cenário.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <span class="q">Preciso estar conectado à internet para utilizar o sistema?</span>
+              <span class="badge">Conectividade</span>
+            </summary>
+            <div class="answer">
+              <p>O sistema funciona preferencialmente <strong>online</strong> para sincronização e recursos em nuvem. Alguns módulos podem ter <em>operações contingenciais</em> e sincronizam quando a conexão volta — confirme conforme o seu plano.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <span class="q">Consigo acessar o sistema mesmo fora do estabelecimento?</span>
+              <span class="badge">Acesso remoto</span>
+            </summary>
+            <div class="answer">
+              <p>Sim. A aplicação é acessível via navegador com login seguro. Recursos podem variar por perfil de acesso e plano contratado.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <span class="q">Já utilizo um sistema. Vou perder meus dados na migração?</span>
+              <span class="badge">Migração</span>
+            </summary>
+            <div class="answer">
+              <p>Não. Oferecemos <strong>importação assistida</strong> de cadastros, produtos, clientes e histórico (quando disponível). Avaliamos seu arquivo atual e orientamos o melhor formato de exportação.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <span class="q">Posso ver ou testar o sistema gratuitamente?</span>
+              <span class="badge">Teste</span>
+            </summary>
+            <div class="answer">
+              <p>Sim. Disponibilizamos <strong>período de avaliação</strong> com dados de demonstração. Fale conosco para ativação e onboarding.</p>
+            </div>
+          </details>
+        </div>
+
+        <!-- Avaliação -->
+        <div class="faq" data-group="avaliacao" hidden>
+          <details>
+            <summary>
+              <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <span class="q">Como funciona o período de avaliação?</span>
+              <span class="badge">Avaliação</span>
+            </summary>
+            <div class="answer">
+              <p>Oferecemos avaliação por tempo limitado com suporte de onboarding. Ao final, você pode migrar para um plano sem perder os dados criados durante o teste.</p>
+            </div>
+          </details>
+        </div>
+
+        <!-- Cobrança -->
+        <div class="faq" data-group="cobranca" hidden>
+          <details>
+            <summary>
+              <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <span class="q">Quais são as formas de cobrança?</span>
+              <span class="badge">Financeiro</span>
+            </summary>
+            <div class="answer">
+              <p>Trabalhamos com planos mensais e anuais, com cobranças via cartão, PIX ou boleto. Há descontos progressivos para anualidade.</p>
+            </div>
+          </details>
+        </div>
+
+        <!-- Emissão de Nota -->
+        <div class="faq" data-group="nota" hidden>
+          <details>
+            <summary>
+              <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <span class="q">O sistema emite NF-e/NFS-e?</span>
+              <span class="badge">Fiscal</span>
+            </summary>
+            <div class="answer">
+              <p>Sim, com certificados A1/A3 e integrações municipais/estaduais compatíveis. A disponibilidade pode variar conforme sua cidade/UF.</p>
+            </div>
+          </details>
+        </div>
+
+        <!-- PDV -->
+        <div class="faq" data-group="pdv" hidden>
+          <details>
+            <summary>
+              <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <span class="q">O PDV funciona com impressora térmica e TEF?</span>
+              <span class="badge">PDV</span>
+            </summary>
+            <div class="answer">
+              <p>Sim. Compatível com impressoras térmicas (80mm/58mm), gaveta automática e soluções TEF/PSP homologadas.</p>
+            </div>
+          </details>
+        </div>
+
+        <!-- Suporte -->
+        <div class="faq" data-group="suporte" hidden>
+          <details>
+            <summary>
+              <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <span class="q">Há treinamento e suporte?</span>
+              <span class="badge">Suporte</span>
+            </summary>
+            <div class="answer">
+              <p>Sim. Onboarding guiado, base de conhecimento e suporte humano em horário comercial. Planos superiores incluem SLAs ampliados.</p>
+            </div>
+          </details>
+        </div>
+
+        <!-- Boletos -->
+        <div class="faq" data-group="boletos" hidden>
+          <details>
+            <summary>
+              <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <span class="q">Posso emitir boletos pelo sistema?</span>
+              <span class="badge">Financeiro</span>
+            </summary>
+            <div class="answer">
+              <p>Integramos com bancos e gateways para emissão e conciliação de boletos. A configuração depende da sua instituição financeira.</p>
+            </div>
+          </details>
+        </div>
+
+        <!-- Cancelamento -->
+        <div class="faq" data-group="cancelamento" hidden>
+          <details>
+            <summary>
+              <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <span class="q">Como faço para cancelar?</span>
+              <span class="badge">Conta</span>
+            </summary>
+            <div class="answer">
+              <p>O cancelamento pode ser solicitado pelo painel administrativo. Seus dados ficam disponíveis para exportação por um período determinado.</p>
+            </div>
+          </details>
+        </div>
+
+        <!-- Parceria -->
+        <div class="faq" data-group="parceria" hidden>
+          <details>
+            <summary>
+              <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <span class="q">Como ser parceiro ou representante?</span>
+              <span class="badge">Parcerias</span>
+            </summary>
+            <div class="answer">
+              <p>Temos programa de parcerias com comissionamento e materiais de venda. Entre em contato para receber o media kit e regras.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="empty" id="emptyState">Nenhum resultado encontrado para sua busca.</div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    // ===== Tabs por categoria =====
+    const catButtons = Array.from(document.querySelectorAll('.cat-btn'));
+    const groups = Array.from(document.querySelectorAll('.faq'));
+    const currentLabel = document.getElementById('current-cat-label');
+
+    function setCategory(cat){
+      catButtons.forEach(b => b.setAttribute('aria-selected', String(b.dataset.cat === cat)));
+      groups.forEach(g => {
+        const match = g.dataset.group === cat;
+        g.hidden = !match;
+        // fecha todos os details ao trocar de aba
+        if (match) g.querySelectorAll('details[open]').forEach(d => d.open = false);
+      });
+      currentLabel.textContent = catButtons.find(b => b.dataset.cat === cat)?.textContent.trim() || '';
+      // limpa busca ao trocar de aba
+      searchInput.value = '';
+      filterQuestions('');
+    }
+
+    catButtons.forEach(btn => {
+      btn.addEventListener('click', () => setCategory(btn.dataset.cat));
+      btn.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown'){
+          const i = catButtons.indexOf(btn);
+          const next = catButtons[(i+1) % catButtons.length];
+          next.focus();
+        }
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowUp'){
+          const i = catButtons.indexOf(btn);
+          const prev = catButtons[(i-1+catButtons.length) % catButtons.length];
+          prev.focus();
+        }
+      });
+    });
+
+    // ===== Busca =====
+    const searchInput = document.getElementById('searchInput');
+    const clearSearch = document.getElementById('clearSearch');
+    const emptyState = document.getElementById('emptyState');
+
+    function filterQuestions(q){
+      const query = q.trim().toLowerCase();
+      let anyVisible = false;
+
+      groups.forEach(group => {
+        if (group.hidden) return;
+        const details = Array.from(group.querySelectorAll('details'));
+        details.forEach(d => {
+          const text = d.textContent.toLowerCase();
+          const match = text.includes(query);
+          d.style.display = match ? '' : 'none';
+          if (match) anyVisible = true;
+        });
+      });
+
+      emptyState.style.display = anyVisible ? 'none' : 'block';
+    }
+
+    searchInput.addEventListener('input', e => filterQuestions(e.target.value));
+    clearSearch.addEventListener('click', () => {
+      searchInput.value = '';
+      filterQuestions('');
+      searchInput.focus();
+    });
+
+    // ===== Open/close acessível =====
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape'){
+        document.querySelectorAll('details[open]').forEach(d => d.open = false);
+      }
+    });
+
+    // init
+    setCategory('basicas');
+  </script>
 </body>
 </html>
